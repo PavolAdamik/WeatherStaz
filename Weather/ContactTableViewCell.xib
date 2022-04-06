@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,35 +22,51 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Nw-ut-bLw">
                         <rect key="frame" x="0.0" y="0.0" width="360" height="112"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[DAY]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEY-Zc-7vj">
-                                <rect key="frame" x="16" y="45.5" width="44" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="[DAY]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEY-Zc-7vj">
+                                <rect key="frame" x="16" y="46" width="44" height="20.5"/>
                                 <color key="tintColor" systemColor="systemGrayColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <color key="highlightedColor" systemColor="systemGrayColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="__˚C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bwu-d7-5EL">
-                                <rect key="frame" x="305" y="45.5" width="39" height="21"/>
+                                <rect key="frame" x="305.5" y="46" width="38.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[__ %]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEh-5r-M7E">
-                                <rect key="frame" x="179" y="45.5" width="51" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXD-TX-iEt">
+                                <rect key="frame" x="134.5" y="48" width="91" height="16"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CQa-Fi-3bM">
+                                        <rect key="frame" x="0.0" y="-1" width="25.5" height="15"/>
+                                        <imageReference key="image" image="cloud.sun.fill" catalog="system" renderingMode="original"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jas-eY-PYb">
+                                        <rect key="frame" x="24.5" y="0.0" width="16" height="16"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="16" id="eO6-DD-IZZ"/>
+                                            <constraint firstAttribute="height" constant="16" id="fV1-3b-lc2"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[__ %]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEh-5r-M7E">
+                                        <rect key="frame" x="40.5" y="0.0" width="50.5" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="linkColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="pEh-5r-M7E" firstAttribute="leading" secondItem="QEY-Zc-7vj" secondAttribute="trailing" constant="119" id="3oE-qe-Gcz"/>
-                            <constraint firstItem="QEY-Zc-7vj" firstAttribute="centerY" secondItem="4Nw-ut-bLw" secondAttribute="centerY" id="St2-jd-vRS"/>
+                            <constraint firstItem="JXD-TX-iEt" firstAttribute="centerX" secondItem="4Nw-ut-bLw" secondAttribute="centerX" id="4KZ-rW-Yzd"/>
+                            <constraint firstItem="QEY-Zc-7vj" firstAttribute="centerY" secondItem="4Nw-ut-bLw" secondAttribute="centerY" id="H3n-id-bGo"/>
+                            <constraint firstItem="JXD-TX-iEt" firstAttribute="centerY" secondItem="4Nw-ut-bLw" secondAttribute="centerY" id="If2-YU-hCO"/>
                             <constraint firstItem="QEY-Zc-7vj" firstAttribute="leading" secondItem="4Nw-ut-bLw" secondAttribute="leading" constant="16" id="Tv9-Lb-vgW"/>
+                            <constraint firstItem="Bwu-d7-5EL" firstAttribute="centerY" secondItem="4Nw-ut-bLw" secondAttribute="centerY" id="khy-Sl-G33"/>
                             <constraint firstAttribute="trailing" secondItem="Bwu-d7-5EL" secondAttribute="trailing" constant="16" id="of4-wX-KMn"/>
-                            <constraint firstItem="Bwu-d7-5EL" firstAttribute="centerY" secondItem="4Nw-ut-bLw" secondAttribute="centerY" id="pws-qE-eku"/>
-                            <constraint firstItem="Bwu-d7-5EL" firstAttribute="leading" secondItem="pEh-5r-M7E" secondAttribute="trailing" constant="75" id="vle-gL-5lP"/>
-                            <constraint firstItem="pEh-5r-M7E" firstAttribute="centerY" secondItem="4Nw-ut-bLw" secondAttribute="centerY" id="zYB-T7-UDc"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -65,11 +82,16 @@
                 <outlet property="dayLabel" destination="QEY-Zc-7vj" id="Egn-tL-DOo"/>
                 <outlet property="degreeLabel" destination="Bwu-d7-5EL" id="kE0-yM-fbS"/>
                 <outlet property="percentageLabel" destination="pEh-5r-M7E" id="7OM-cG-kpm"/>
+                <outlet property="weatherLabel" destination="CQa-Fi-3bM" id="UM5-TT-shA"/>
             </connections>
             <point key="canvasLocation" x="166.66666666666669" y="115.17857142857142"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="cloud.sun.fill" catalog="system" width="128" height="95"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -7,8 +7,9 @@
 
 import UIKit
 
-struct Weather {
+struct WeatherDay {
     let day: String
+    let weather: String
     let percentage: String
     let degree: String
 }
@@ -23,29 +24,22 @@ class WeatherDetailViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     
     
-    var weather: [Weather] {
+    var weatherDay: [WeatherDay] {
         get {
-            return [Weather(day: "Monday", percentage: "10", degree: "24"),
-                    Weather(day: "Tuesday", percentage: "17", degree: "19"),
-                    Weather(day: "Wednesday", percentage: "5", degree: "29"),
-                    Weather(day: "Thursday", percentage: "25", degree: "26"),
-                    Weather(day: "Friday", percentage: "14", degree: "30"),
-                    Weather(day: "Saturday", percentage: "16", degree: "-9"),
-                    Weather(day: "Sunday", percentage: "2", degree: "18")]
+            return [WeatherDay(day: "Monday", weather: "rain", percentage: "10 %", degree: "24˚C"),
+                    WeatherDay(day: "Tuesday",weather: "cloud", percentage: "17 %", degree: "19˚C"),
+                    WeatherDay(day: "Wednesday",weather: "snow", percentage: "5 %", degree: "29˚C"),
+                    WeatherDay(day: "Thursday",weather: "sun", percentage: "25 %", degree: "26˚C"),
+                    WeatherDay(day: "Friday",weather: "wind", percentage: "14 %", degree: "30˚C"),
+                    WeatherDay(day: "Saturday",weather: "snow", percentage: "16 %", degree: "-9˚C"),
+                    WeatherDay(day: "Sunday",weather: "freez", percentage: "2%", degree: "18˚C")]
         }
     }
-                                
-    //var weatherDays: [String] {
-    //    ["Monday", "Tuesdday", "Wednesday", "Thursday", "Friday", "Saturday", "Synday"]
-   // }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //.tableHeaderView = nil
+        //.tableHeaderView = nill // to keby chcem schovat tu vrchnu cast
         tableView.dataSource = self
-       // tableView.reloadData()
-        //tableView.delegate = self
-        
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: ContactTableViewCell.classString, bundle: nil), forCellReuseIdentifier: ContactTableViewCell.classString)
         // Do any additional setup after loading the view.
@@ -53,26 +47,16 @@ class WeatherDetailViewController: UIViewController {
 }
 
 extension WeatherDetailViewController: UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return weather.count
+        return weatherDay.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPaths: IndexPath) -> UITableViewCell {
         guard let weatherCell = tableView.dequeueReusableCell(withIdentifier: ContactTableViewCell.classString, for: indexPaths) as? ContactTableViewCell else {
             return UITableViewCell()
         }
-        //let day = weather[indexPaths.row]
-       // weatherCell.dayLabel.text = day.day
-       // weatherCell.degreeLabel.text = day.degree
-       // weatherCell.percentageLabel.text = day.percentage
-        
-        let model = ContactTableViewCell.Model(weather: weather[indexPaths.row])
-        weatherCell.setupView(weather: model)
+        let model = ContactTableViewCell.Model(weatherDay: weatherDay[indexPaths.row])
+        weatherCell.setupView(weatherDay: model)
     return weatherCell
-        //let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
-        //cell.textLabel?.text = "haloo"
-       // return cell
     }
 }
     

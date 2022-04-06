@@ -15,11 +15,13 @@ class ContactTableViewCell: UITableViewCell {
         let day: String
         let degree: String
         let percentage : String
+        let weather : String
         
-        init(weather: Weather) {
-            day = weather.day
-            degree = weather.degree
-            percentage = weather.percentage
+        init(weatherDay: WeatherDay) {
+            day = weatherDay.day
+            degree = weatherDay.degree
+            percentage = weatherDay.percentage
+            weather = weatherDay.weather
         }
     }
 
@@ -30,11 +32,12 @@ class ContactTableViewCell: UITableViewCell {
     @IBOutlet weak var degreeLabel: UILabel!
     @IBOutlet weak var percentageLabel: UILabel!
     @IBOutlet weak var dayLabel: UILabel!
+    @IBOutlet weak var weatherLabel: UIImageView!
     
-    
-    func setupView(weather: Model) {
-        degreeLabel.text = weather.degree
-        percentageLabel.text = weather.percentage
-        dayLabel.text = weather.day
+    func setupView(weatherDay: Model) {
+        degreeLabel.text = weatherDay.degree
+        percentageLabel.text = weatherDay.percentage
+        dayLabel.text = weatherDay.day
+       // weather.text = weatherDay.weather
     }
 }
