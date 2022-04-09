@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="ipad12_9" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -36,22 +36,26 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXD-TX-iEt">
-                                <rect key="frame" x="134.5" y="48" width="91" height="16"/>
+                                <rect key="frame" x="131" y="44" width="98.5" height="24"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CQa-Fi-3bM">
-                                        <rect key="frame" x="0.0" y="-1" width="25.5" height="15"/>
-                                        <imageReference key="image" image="cloud.sun.fill" catalog="system" renderingMode="original"/>
+                                        <rect key="frame" x="0.0" y="-1" width="33" height="23"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="Fz3-3E-k6P"/>
+                                            <constraint firstAttribute="width" constant="32" id="yh4-5c-8ps"/>
+                                        </constraints>
+                                        <imageReference key="image" image="cloud.sun.fill" catalog="system" symbolScale="medium" renderingMode="original"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jas-eY-PYb">
-                                        <rect key="frame" x="24.5" y="0.0" width="16" height="16"/>
+                                        <rect key="frame" x="32" y="0.0" width="16" height="24"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="16" id="0d2-d0-vaJ"/>
                                             <constraint firstAttribute="width" constant="16" id="eO6-DD-IZZ"/>
-                                            <constraint firstAttribute="height" constant="16" id="fV1-3b-lc2"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[__ %]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEh-5r-M7E">
-                                        <rect key="frame" x="40.5" y="0.0" width="50.5" height="16"/>
+                                        <rect key="frame" x="48" y="0.0" width="50.5" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="linkColor"/>
                                         <nil key="highlightedColor"/>
@@ -84,7 +88,7 @@
                 <outlet property="percentageLabel" destination="pEh-5r-M7E" id="7OM-cG-kpm"/>
                 <outlet property="weatherLabel" destination="CQa-Fi-3bM" id="UM5-TT-shA"/>
             </connections>
-            <point key="canvasLocation" x="166.66666666666669" y="115.17857142857142"/>
+            <point key="canvasLocation" x="166.40625" y="115.0805270863836"/>
         </tableViewCell>
     </objects>
     <resources>
