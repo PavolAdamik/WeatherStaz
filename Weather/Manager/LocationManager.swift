@@ -12,21 +12,24 @@ struct CurrentLocation {
     let city: String
     let coordinates: CLLocationCoordinate2D
 }
-
+/*
 protocol LocationManagerDelegate: NSObject {
     
     func locationManager(_ locationManager:  LocationManager, didLoadCurrent location: CurrentLocation)
 }
+ */
+
+typealias CityCompletionHandler = ((CurrentLocation?, Error?) -> Void)
 
 class LocationManager: CLLocationManager {
     
     static let shared = LocationManager()
     private var geocoder = CLGeocoder()
     
-    weak var cityDelegate: LocationManagerDelegate?
-    var completion: ((CurrentLocation) -> Void)?
+   // weak var cityDelegate: LocationManagerDelegate?
+    var completion: CityCompletionHandler?
     
-    func getLocation(completion: @escaping (CurrentLocation)->Void) {
+    func getLocation(completion: CityCompletionHandler?) {
         self.completion = completion
         requestWhenInUseAuthorization()
         startUpdatingLocation()
@@ -41,17 +44,19 @@ extension LocationManager: CLLocationManagerDelegate {
             return
         }
         
-        geocoder.reverseGeocodeLocation(location) { [weak self] placemark, error in
-            guard let placemark = placemark?.first, let city = placemark.locality, error == nil else {
+        geocoder.reverseGeocodeLocation(location) { [weak self] placemarks, error in
+            guard let self = self else { return}
+            guard let placemark = placemarks?.first, let city = placemark.locality, error == nil else {
+                if let completion = self.completion {
+                    completion(nil, error)
+                }
                 return
             }
             let currentLocation = CurrentLocation(city: city, coordinates: location.coordinate)
-            if let self = self, let completion = self.completion {
-                completion(currentLocation)
-            }
+            self.completion?(currentLocation, nil)
         }
     }
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus{
         case .denied:
             print("Denied")
@@ -64,6 +69,5 @@ extension LocationManager: CLLocationManagerDelegate {
         @unknown default:
             fatalError()
         }
-        //print(manager.authorizationStatus)
     }
 }

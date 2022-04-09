@@ -53,11 +53,15 @@ class WeatherDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        LocationManager.shared.getLocation { [weak self] location in
-            self?.locationLabel.text = location.city
+        LocationManager.shared.getLocation { [weak self] location, error in
+            if let error = error {
+                print("Chyba")
+            } else if let location = location {
+                self?.locationLabel.text = location.city
+            }
         }
             
-        LocationManager.shared.cityDelegate = self
+        //LocationManager.shared.cityDelegate = self
         //.tableHeaderView = nill // to keby chcem schovat tu vrchnu cast
         tableView.dataSource = self
        // tableView.rowHeight = UITableView.automaticDimension
@@ -79,12 +83,10 @@ extension WeatherDetailViewController: UITableViewDataSource {
     return weatherCell
     }
 }
-
+/*
 extension WeatherDetailViewController: LocationManagerDelegate {
     
     func locationManager(_ locationManager: LocationManager, didLoadCurrent location: CurrentLocation) {
     }
 }
-    
-
-
+    */
