@@ -36,7 +36,13 @@ class WeatherDetailViewController: UIViewController {
          WeatherDay(title: "Saturday",degree: 31, percentage: 16, state: .sunny),
          WeatherDay(title: "Sunday",degree: 23, percentage: 23, state: .sunny)]
     }
-  /*
+    @IBAction func Search(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "SearchViewController", bundle: nil)
+        if let navigationController = storyboard.instantiateInitialViewController() {
+            present (navigationController, animated: true)
+        }
+    }
+    /*
     var weatherDay: [WeatherDay] {
         get {
             return [WeatherDay(title: "Monday", weather: "rain", percentage: "10 %", degree: "24˚C"),

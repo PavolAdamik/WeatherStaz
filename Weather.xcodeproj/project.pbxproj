@@ -14,6 +14,8 @@
 		090B667227F10C730003AE16 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 090B667027F10C730003AE16 /* LaunchScreen.storyboard */; };
 		0943DD2F280171A200315E8E /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0943DD2E280171A200315E8E /* Weather.swift */; };
 		0943DD3728023A7A00315E8E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0943DD3628023A7A00315E8E /* LocationManager.swift */; };
+		0943DD3A2802C4D700315E8E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0943DD392802C4D700315E8E /* SearchViewController.swift */; };
+		0943DD3C2802C50400315E8E /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0943DD3B2802C50400315E8E /* SearchViewController.storyboard */; };
 		09611DA927FB7EBE00B73975 /* weatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09611DA827FB7EBE00B73975 /* weatherTableViewCell.swift */; };
 		09611DAC27FB851E00B73975 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09611DAA27FB851E00B73975 /* ContactTableViewCell.swift */; };
 		09611DAD27FB851E00B73975 /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09611DAB27FB851E00B73975 /* ContactTableViewCell.xib */; };
@@ -50,6 +52,8 @@
 		0943DD34280238C500315E8E /* Setechov.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Setechov.gpx; path = ../../Downloads/Setechov.gpx; sourceTree = "<group>"; };
 		0943DD35280238CD00315E8E /* Zilina.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Zilina.gpx; path = ../../Downloads/Zilina.gpx; sourceTree = "<group>"; };
 		0943DD3628023A7A00315E8E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		0943DD392802C4D700315E8E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		0943DD3B2802C50400315E8E /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
 		09611DA827FB7EBE00B73975 /* weatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherTableViewCell.swift; sourceTree = "<group>"; };
 		09611DAA27FB851E00B73975 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		09611DAB27FB851E00B73975 /* ContactTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 		0943DD30280171C500315E8E /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				0943DD382802C46B00315E8E /* Search */,
 				0943DD31280171D500315E8E /* Cell */,
 			);
 			path = Screens;
@@ -164,6 +169,15 @@
 			children = (
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		0943DD382802C46B00315E8E /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				0943DD392802C4D700315E8E /* SearchViewController.swift */,
+				0943DD3B2802C50400315E8E /* SearchViewController.storyboard */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +287,7 @@
 				09611DAD27FB851E00B73975 /* ContactTableViewCell.xib in Resources */,
 				090B667227F10C730003AE16 /* LaunchScreen.storyboard in Resources */,
 				090B666F27F10C730003AE16 /* Assets.xcassets in Resources */,
+				0943DD3C2802C50400315E8E /* SearchViewController.storyboard in Resources */,
 				090B666D27F10C720003AE16 /* WeatherDetailViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09611DAC27FB851E00B73975 /* ContactTableViewCell.swift in Sources */,
+				0943DD3A2802C4D700315E8E /* SearchViewController.swift in Sources */,
 				090B666A27F10C720003AE16 /* WeatherDetailViewController.swift in Sources */,
 				0943DD3728023A7A00315E8E /* LocationManager.swift in Sources */,
 				090B666627F10C720003AE16 /* AppDelegate.swift in Sources */,
