@@ -16,6 +16,7 @@
 		0943DD3728023A7A00315E8E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0943DD3628023A7A00315E8E /* LocationManager.swift */; };
 		0943DD3A2802C4D700315E8E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0943DD392802C4D700315E8E /* SearchViewController.swift */; };
 		0943DD3C2802C50400315E8E /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0943DD3B2802C50400315E8E /* SearchViewController.storyboard */; };
+		0943DD3E2802DD7F00315E8E /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0943DD3D2802DD7F00315E8E /* TabBar.storyboard */; };
 		09611DA927FB7EBE00B73975 /* weatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09611DA827FB7EBE00B73975 /* weatherTableViewCell.swift */; };
 		09611DAC27FB851E00B73975 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09611DAA27FB851E00B73975 /* ContactTableViewCell.swift */; };
 		09611DAD27FB851E00B73975 /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09611DAB27FB851E00B73975 /* ContactTableViewCell.xib */; };
@@ -54,6 +55,7 @@
 		0943DD3628023A7A00315E8E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		0943DD392802C4D700315E8E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		0943DD3B2802C50400315E8E /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
+		0943DD3D2802DD7F00315E8E /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		09611DA827FB7EBE00B73975 /* weatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherTableViewCell.swift; sourceTree = "<group>"; };
 		09611DAA27FB851E00B73975 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		09611DAB27FB851E00B73975 /* ContactTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			children = (
 				0943DD392802C4D700315E8E /* SearchViewController.swift */,
 				0943DD3B2802C50400315E8E /* SearchViewController.storyboard */,
+				0943DD3D2802DD7F00315E8E /* TabBar.storyboard */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				090B667227F10C730003AE16 /* LaunchScreen.storyboard in Resources */,
 				090B666F27F10C730003AE16 /* Assets.xcassets in Resources */,
 				0943DD3C2802C50400315E8E /* SearchViewController.storyboard in Resources */,
+				0943DD3E2802DD7F00315E8E /* TabBar.storyboard in Resources */,
 				090B666D27F10C720003AE16 /* WeatherDetailViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

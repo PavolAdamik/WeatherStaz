@@ -41,6 +41,7 @@ class WeatherDetailViewController: UIViewController {
         if let navigationController = storyboard.instantiateInitialViewController() {
             present (navigationController, animated: true)
         }
+        //navigationController?.pushViewController(SearchViewController, animated: true)
     }
     /*
     var weatherDay: [WeatherDay] {
