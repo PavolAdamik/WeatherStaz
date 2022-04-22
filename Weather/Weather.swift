@@ -38,6 +38,6 @@ struct WeatherDay {
     let percentage: Int
     let state: WeatherState
     
-    var temperatureWithCelsius: String {"\(degree)˚C"}
+    //var temperatureWithCelsius: String {"\(degree)˚C"}
     var perceptionWithPercentage: String {"\(percentage)%"}
 }

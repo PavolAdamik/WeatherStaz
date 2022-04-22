@@ -9,8 +9,17 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
+    //MARK: - Outlets
+    
     @IBOutlet weak var tableView: UITableView!
 
+    //MARK: - Actions
+
+    @IBAction func close(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    //MARK: - Variables
+    
     private let searchController = UISearchController(searchResultsController: nil)
     private let searchManager =  SearchManager()
     private var places = [Place]()
@@ -19,9 +28,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         setupSearchController()
     }
-    @IBAction func close(_ sender: Any) {
-        dismiss(animated: true)
-    }
+    
     
     func setupSearchController() {
         //navigationController?.title  = "Search"

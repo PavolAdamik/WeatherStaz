@@ -61,22 +61,22 @@
                                             </subviews>
                                         </stackView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Temperature]" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PHf-eJ-tfC">
-                                            <rect key="frame" x="16" y="75.333333333333329" width="396" height="71.999999999999986"/>
+                                            <rect key="frame" x="16" y="75.333333333333329" width="396" height="63.999999999999986"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="72" id="wRP-Zz-boy"/>
+                                                <constraint firstAttribute="height" constant="64" id="wRP-Zz-boy"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" weight="black" pointSize="64"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="72"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Weather description]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZY-cB-9bJ">
-                                            <rect key="frame" x="16" y="163.33333333333334" width="298.33333333333331" height="38.333333333333343"/>
+                                            <rect key="frame" x="16" y="155.33333333333334" width="298.33333333333331" height="38.333333333333343"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Feels like]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tok-Ta-Mv2">
-                                            <rect key="frame" x="16" y="209.66666666666666" width="82" height="20.333333333333343"/>
+                                            <rect key="frame" x="16" y="201.66666666666666" width="82" height="20.333333333333343"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" systemColor="systemGray2Color"/>
                                             <nil key="highlightedColor"/>
