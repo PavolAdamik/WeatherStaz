@@ -8,15 +8,19 @@
 import UIKit
 
 class SearchViewController: UIViewController {
+    
+    @IBOutlet weak var tableView: UITableView!
 
     private let searchController = UISearchController(searchResultsController: nil)
+    private let searchManager =  SearchManager()
     private var places = [Place]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSearchController()
-
-        // Do any additional setup after loading the view.
+    }
+    @IBAction func close(_ sender: Any) {
+        dismiss(animated: true)
     }
     
     func setupSearchController() {
@@ -30,10 +34,10 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        LocationManager.shared.getLocalSearchResults(from: searchText) {
-            places in
+        searchManager.getLocalSearchResults(from: searchText) { places in
             self.places = places
-            self.tabBarItem.reloadData()
+            //self.tableView.reloadData() // no tu to padne .. nvm co napisal 15:21 do identifier v searchViewControlleri v storyborde pri tej TableViewCelle
+            self.tableView.reloadData()
         }
     }
 }
@@ -44,7 +48,7 @@ extension SearchViewController:UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let searchCell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath)
+        let searchCell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath)
         let place = places[indexPath.row]
         searchCell.textLabel?.text = place.city
         searchCell.detailTextLabel?.text = place.country
@@ -53,14 +57,22 @@ extension SearchViewController:UITableViewDataSource {
 }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension SearchViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let place = places[indexPath.row]
+        presentWeatherDetail(with: place)
+        //**1 ked tu stlacim na nejaku cellu a zavolaam zasa tento riadok podtym
+       // performSegue(withIdentifier: "detail", sender: place) // cize tym identifirom volam konkretny sender
     }
-    */
+    
+    func presentWeatherDetail(with place: Place) {
+        let storybord = UIStoryboard(name: "WeatherDetailViewController", bundle: nil) // vytiahnem si konkretny storyboard v ktorom mam to UIcko.. z toho storyboardu si viem inicializovat nejaky konkretny kontroller.. bud instantieit (to je ten so sipkou.. zaciatocny)
+        if let weatherViewController = storybord.instantiateViewController(withIdentifier: "idecko") as? WeatherDetailViewController { // pretypujem
+            weatherViewController.place = place
+            navigationController?.pushViewController(weatherViewController, animated: true)
+            //navigationController?.popToRootViewController(animated: true) // toto z konca vrati na zaciatok .. vymaze to to co tam bolo medzi tym
+        }
+    }
+}
 
 

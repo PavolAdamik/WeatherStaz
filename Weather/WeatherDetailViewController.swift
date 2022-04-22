@@ -18,12 +18,21 @@ struct WeatherDay {
 
 //@main
 class WeatherDetailViewController: UIViewController {
+    
+    //MARK: - Outlets
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var weatherStatusLabel: UILabel!
     @IBOutlet weak var feelsLikeLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    
+    // MARK:  - Variables
+    
+    var place:Place?
+    
+    var locationManager = LocationManager()
     
     var refreshControl = UIRefreshControl()
     
@@ -44,26 +53,23 @@ class WeatherDetailViewController: UIViewController {
         }
         //navigationController?.pushViewController(SearchViewController, animated: true)
     }
-    /*
-    var weatherDay: [WeatherDay] {
-        get {
-            return [WeatherDay(title: "Monday", weather: "rain", percentage: "10 %", degree: "24˚C"),
-                    WeatherDay(title: "Tuesday",weather: "cloud", percentage: "17 %", degree: "19˚C"),
-                    WeatherDay(title: "Wednesday",weather: "snow", percentage: "5 %", degree: "29˚C"),
-                    WeatherDay(title: "Thursday",weather: "sun", percentage: "25 %", degree: "26˚C"),
-                    WeatherDay(title: "Friday",weather: "wind", percentage: "14 %", degree: "30˚C"),
-                    WeatherDay(title: "Saturday",weather: "snow", percentage: "16 %", degree: "-9˚C"),
-                    WeatherDay(title: "Sunday",weather: "freez", percentage: "2%", degree: "18˚C")]
-        }
-    }
-   */
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
        // tabBarItem = UITabBarItem(title: "Location", image: UIImage(systemName: "location.fill"), tag: 0)
         
-        Search(String())
+        //Search(String())
+        tableView.dataSource = self
+        //tableView.delegate = self
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        dateLabel.text = formatter.string(from: Date())
+        
+        locationLabel.text = place?.city 
         
         LocationManager.shared.getLocation { [weak self] location, error in
             if let error = error {
@@ -75,7 +81,7 @@ class WeatherDetailViewController: UIViewController {
             
         //LocationManager.shared.cityDelegate = self
         //.tableHeaderView = nill // to keby chcem schovat tu vrchnu cast
-        tableView.dataSource = self
+       ///////
        // tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: ContactTableViewCell.classString, bundle: nil), forCellReuseIdentifier: ContactTableViewCell.classString)
         // Do any additional setup after loading the view.

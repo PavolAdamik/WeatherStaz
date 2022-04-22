@@ -20,6 +20,7 @@
 		09611DA927FB7EBE00B73975 /* weatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09611DA827FB7EBE00B73975 /* weatherTableViewCell.swift */; };
 		09611DAC27FB851E00B73975 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09611DAA27FB851E00B73975 /* ContactTableViewCell.swift */; };
 		09611DAD27FB851E00B73975 /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09611DAB27FB851E00B73975 /* ContactTableViewCell.xib */; };
+		099EBB2C2812F5BA0021989A /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099EBB2B2812F5BA0021989A /* SearchManager.swift */; };
 		09A917CC280B6D6700FA8B5F /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09A917CB280B6D6700FA8B5F /* MapViewController.storyboard */; };
 		09A917D2280B6EB900FA8B5F /* FavoritesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09A917D1280B6EB900FA8B5F /* FavoritesViewController.storyboard */; };
 		09A917D4280B6FBE00FA8B5F /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A917D3280B6FBE00FA8B5F /* FavoritesViewController.swift */; };
@@ -62,6 +63,7 @@
 		09611DA827FB7EBE00B73975 /* weatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherTableViewCell.swift; sourceTree = "<group>"; };
 		09611DAA27FB851E00B73975 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		09611DAB27FB851E00B73975 /* ContactTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
+		099EBB2B2812F5BA0021989A /* SearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
 		09A917CB280B6D6700FA8B5F /* MapViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
 		09A917D1280B6EB900FA8B5F /* FavoritesViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoritesViewController.storyboard; sourceTree = "<group>"; };
 		09A917D3280B6FBE00FA8B5F /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				0943DD3628023A7A00315E8E /* LocationManager.swift */,
+				099EBB2B2812F5BA0021989A /* SearchManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				090B666A27F10C720003AE16 /* WeatherDetailViewController.swift in Sources */,
 				0943DD3728023A7A00315E8E /* LocationManager.swift in Sources */,
 				090B666627F10C720003AE16 /* AppDelegate.swift in Sources */,
+				099EBB2C2812F5BA0021989A /* SearchManager.swift in Sources */,
 				09611DA927FB7EBE00B73975 /* weatherTableViewCell.swift in Sources */,
 				0943DD2F280171A200315E8E /* Weather.swift in Sources */,
 			);
