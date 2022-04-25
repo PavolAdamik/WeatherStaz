@@ -29,6 +29,8 @@
 		09A917CC280B6D6700FA8B5F /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09A917CB280B6D6700FA8B5F /* MapViewController.storyboard */; };
 		09A917D2280B6EB900FA8B5F /* FavoritesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09A917D1280B6EB900FA8B5F /* FavoritesViewController.storyboard */; };
 		09A917D4280B6FBE00FA8B5F /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A917D3280B6FBE00FA8B5F /* FavoritesViewController.swift */; };
+		09F1EEEC281742850044CA43 /* HourlyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F1EEEA281742850044CA43 /* HourlyTableViewCell.swift */; };
+		09F1EEED281742850044CA43 /* HourlyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09F1EEEB281742850044CA43 /* HourlyTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,8 @@
 		09A917CB280B6D6700FA8B5F /* MapViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
 		09A917D1280B6EB900FA8B5F /* FavoritesViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoritesViewController.storyboard; sourceTree = "<group>"; };
 		09A917D3280B6FBE00FA8B5F /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		09F1EEEA281742850044CA43 /* HourlyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyTableViewCell.swift; sourceTree = "<group>"; };
+		09F1EEEB281742850044CA43 /* HourlyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HourlyTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,7 @@
 		090B666427F10C720003AE16 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				09F1EEE3281428680044CA43 /* HourlyForecast */,
 				099EBB3628135F110021989A /* Formatter */,
 				090B666B27F10C720003AE16 /* WeatherDetailViewController.storyboard */,
 				090B666927F10C720003AE16 /* WeatherDetailViewController.swift */,
@@ -239,6 +244,15 @@
 				09A917CB280B6D6700FA8B5F /* MapViewController.storyboard */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		09F1EEE3281428680044CA43 /* HourlyForecast */ = {
+			isa = PBXGroup;
+			children = (
+				09F1EEEA281742850044CA43 /* HourlyTableViewCell.swift */,
+				09F1EEEB281742850044CA43 /* HourlyTableViewCell.xib */,
+			);
+			path = HourlyForecast;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,6 +371,7 @@
 				0943DD3C2802C50400315E8E /* SearchViewController.storyboard in Resources */,
 				0943DD3E2802DD7F00315E8E /* TabBar.storyboard in Resources */,
 				090B666D27F10C720003AE16 /* WeatherDetailViewController.storyboard in Resources */,
+				09F1EEED281742850044CA43 /* HourlyTableViewCell.xib in Resources */,
 				09A917CC280B6D6700FA8B5F /* MapViewController.storyboard in Resources */,
 				09A917D2280B6EB900FA8B5F /* FavoritesViewController.storyboard in Resources */,
 			);
@@ -389,6 +404,7 @@
 				099EBB31281326000021989A /* WeatherResponse.swift in Sources */,
 				0943DD3A2802C4D700315E8E /* SearchViewController.swift in Sources */,
 				09A917D4280B6FBE00FA8B5F /* FavoritesViewController.swift in Sources */,
+				09F1EEEC281742850044CA43 /* HourlyTableViewCell.swift in Sources */,
 				090B666A27F10C720003AE16 /* WeatherDetailViewController.swift in Sources */,
 				0943DD3728023A7A00315E8E /* LocationManager.swift in Sources */,
 				090B666627F10C720003AE16 /* AppDelegate.swift in Sources */,

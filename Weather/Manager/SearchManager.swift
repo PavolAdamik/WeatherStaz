@@ -19,7 +19,6 @@ class SearchManager: NSObject {
     // MARK: - Variables
     private var searchCompletion: LocalSearchCompletionHandler?
     
-    
     override init() {
         super.init()
         
@@ -33,7 +32,6 @@ class SearchManager: NSObject {
         if query.isEmpty {
             completion([])
         }
-        
         searchCompleter.resultTypes = .address
         searchCompleter.queryFragment = query
         searchCompleter.delegate = self
@@ -48,7 +46,6 @@ struct Place {
 
 extension SearchManager: MKLocalSearchCompleterDelegate {
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
-        // print(completer.results)
         //nechcem aaby mi prechadzali tie empty .. cize spravim si nad resultmi filter
         let places =  completer.results
             .filter { !$0.title.isEmpty} // vykona sa to pre kaazdy item ktory neni empty // item in !item.title.isEmpty.. vsetky co nie su empty
@@ -56,6 +53,5 @@ extension SearchManager: MKLocalSearchCompleterDelegate {
             .filter{ $0.count > 1}
             .map{ Place(city: $0[0], country: $0[1])}
         searchCompletion?(places)
-        print(places)
     }
 }

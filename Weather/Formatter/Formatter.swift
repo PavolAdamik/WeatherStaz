@@ -13,5 +13,15 @@ extension DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE" //format s dnami
         return dateFormatter
-    }() 
+    }()
+   
+    static let timeFormatter: DateFormatter = {
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "HH:MM" // .. "HHMM" asi alebo dd.MM
+        return timeFormatter
+    }()
 }
+
+//extension Timer 
+
+

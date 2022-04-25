@@ -7,73 +7,25 @@
 
 import Foundation
 import CoreLocation
-//import MapKit
 
 struct CurrentLocation {
     let city: String
     let coordinates: CLLocationCoordinate2D
 }
-/*
-protocol LocationManagerDelegate: NSObject {
-    
-    func locationManager(_ locationManager:  LocationManager, didLoadCurrent location: CurrentLocation)
-}
- */
 
 typealias CityCompletionHandler = ((CurrentLocation?, Error?) -> Void)
-//typealias LocalSearchCompleterHandler = (([Place]) -> Void)
-
 class LocationManager: CLLocationManager {
     
     static let shared = LocationManager()
     private var geocoder = CLGeocoder()
-    //private let searchCompleter = MKLocalSearchCompleter()
-    
-   // weak var cityDelegate: LocationManagerDelegate?
     var completion: CityCompletionHandler?
-    
-    //var searchCompletion: LocalSearchCompleterHandler?
-    
     func getLocation(completion: CityCompletionHandler?) {
         self.completion = completion
         requestWhenInUseAuthorization()
         startUpdatingLocation()
         delegate = self
     }
-    
- //   func getLocalSearchResults(from query: String, completion: @escaping
- //    LocalSearchCompleterHandler) {
-  //      self.searchCompletion = completion
-  //
-  //      if query.isEmpty {
-  //          completion([])
-  //      }
-        
-  //      searchCompleter.resultTypes = .address
-  //      searchCompleter.queryFragment = query
-  //      searchCompleter.delegate = self
-  //  }
 }
-/*
-struct Place {
-    let city: String
-    let country: String
-}
-
-extension LocationManager: MKLocalSearchCompleterDelegate {
-    func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
-        // print(completer.results)
-        //nechcem aaby mi prechadzali tie empty .. cize spravim si nad resultmi filter
-        let places =  completer.results
-            .filter { !$0.title.isEmpty} // vykona sa to pre kaazdy item ktory neni empty // item in !item.title.isEmpty.. vsetky co nie su empty
-            .map {$0.title.components(separatedBy: ",")}
-            .filter{ $0.count > 1}
-            .map{ Place(city: $0[0], country: $0[1])}
-        searchCompletion?(places)
-        print(places)
-    }
-}
-*/
 
 extension LocationManager: CLLocationManagerDelegate {
     
@@ -81,7 +33,6 @@ extension LocationManager: CLLocationManagerDelegate {
         guard let location = locations.last else {
             return
         }
-        
         
         geocoder.reverseGeocodeLocation(location) { [weak self] placemarks, error in
             guard let self = self else { return}
@@ -105,7 +56,7 @@ extension LocationManager: CLLocationManagerDelegate {
             print("Authorized")
         case .restricted:
             print("Restricted")
-        @unknown default:
+        default: // @unknown 
             fatalError()
         }
     }

@@ -4,7 +4,7 @@
 //
 //  Created by Pavol Adamík on 09/04/2022.
 //
-
+/*
 import Foundation
 import UIKit
 
@@ -30,14 +30,14 @@ enum WeatherState {
         }
     }
 }
-
-struct WeatherDay {
+*/
+//struct WeatherDay {
    // let day: String
-    let title: String
-    let degree: Int
-    let percentage: Int
-    let state: WeatherState
+//    let title: String
+//    let degree: Int
+ //   let percentage: Int
+ //   let state: WeatherState
     
     //var temperatureWithCelsius: String {"\(degree)˚C"}
-    var perceptionWithPercentage: String {"\(percentage)%"}
-}
+//    var perceptionWithPercentage: String {"\(percentage)%"}
+//}

@@ -15,54 +15,36 @@ import UIKit
 
 // MARK: - WeatherResponse
 struct WeatherResponse: Decodable {
-   // let lat, lon: Double
-  //  let timezone: String // tieto veci asi nepotrebujem
-  //  let timezoneOffset: Int
     let current: CurrentWeather
     let days: [DailyWeather]
+   // let hourly: [HourlyWeather]
     
     enum CodingKeys: String, CodingKey {
+   //     case hourly = "hourly"
         case days = "daily"
         case current
     }
-    /*
-    enum CodingKeys: String, CodingKey {
-        case lat, lon, timezone
-        case timezoneOffset = "timezone_offset"
-        case current, daily
-    }
-     */
 }
 
 // MARK: - Current
 struct CurrentWeather: Decodable {
-    let date: Date // sunrise, sunset: Int .....  toto tu potom chcem
+    let date: Date
     let feelsLike: Double
     let temperature: Double
-   // let pressure, humidity: Int
-   // let dewPoint, uvi: Double
-   // let clouds, visibility: Int
-   // let windSpeed: Double
-  //  let windDeg: Int
+    let sunrise: Date
+    let sunset: Date
     let weather: [Weather]
     
     var temperatureWithCelsius: String {"\(Int(temperature))°C"}
     var formattedFeelsLike: String {"Feels like \(Int(feelsLike))°C"}
-
+    //var formattedSunRise: String  {"\(sunrise)"}
+    //var formattedSunSet: String {"\(sunset)"}
 
     enum CodingKeys: String, CodingKey {
         case date = "dt"
         case feelsLike = "feels_like"
         case temperature = "temp"
-        case weather
-        //case sunrise, sunset, temp
-        
-        //case pressure, humidity
-       // case dewPoint = "dew_point"
-       // case uvi, clouds, visibility
-       // case windSpeed = "wind_speed"
-       // case windDeg = "wind_deg"
-        
+        case weather, sunrise, sunset
     }
 }
 
@@ -72,9 +54,6 @@ struct Weather: Decodable {
     let icon: String
 
     enum CodingKeys: String, CodingKey {
-        //case id, main
-        //case weatherDescription = "description"
-        //case icon
         case description = "main"
         case icon
     }
@@ -104,20 +83,32 @@ struct Weather: Decodable {
         }
     }
 }
+/*
+struct HourlyWeather: Decodable {
+    let time: Date
+    let precipProbability: Double
+    let temperature: Double
+    let windSpeed: Double
+    let weather: [Weather]
+    
+    var temperatureWithCelsius: String {"\(Int(temperature))°C"}
+    var formattedWindSpeed: String {"\(windSpeed)km/h"}
+    var formattedProbability: String {"\(precipProbability)%"}
 
+    
+    enum CodingKeys: String, CodingKey {
+        case time = "dt"
+        case precipProbability = "pop"
+        case temperature = "temp"
+        case windSpeed = "wind_speed"
+        case weather
+    }
+}
+*/
 // MARK: - Daily
 struct DailyWeather: Decodable {
-    let date: Date //, sunrise, sunset, moonrise: Int
-   // let sunrise: Time .. alebo date alebo nieco take
-  //  let sunset: to iste jak hore
-  //  let moonset: Int
-  //  let moonPhase: Double
+    let date: Date
     let temperature: Temperature
- //   let feelsLike: FeelsLike
- //   let pressure, humidity: Int
- //   let dewPoint, windSpeed: Double
-//   let windDeg: Int
-//    let windGust: Double
     let weather: [Weather]
     let precipitation: Double
     
@@ -128,31 +119,16 @@ struct DailyWeather: Decodable {
         case temperature = "temp"
         case precipitation = "pop"
         case weather
-        //case sunrise
-        //case sunset
-        //case dt, sunrise, sunset, moonrise, moonset
-      //  case moonPhase = "moon_phase"
-      //  case temp
-      //  case feelsLike = "feels_like"
-     //   case pressure, humidity
-     //   case dewPoint = "dew_point"
-      //  case windSpeed = "wind_speed"
-      //  case windDeg = "wind_deg"
-      //  case windGust = "wind_gust"
-       // case weather, clouds, pop, uvi, rain
     }
 }
 
 // MARK: - FeelsLike
 struct Temperature: Decodable {
     let day: Double
+ //   let hour: Double
     
     var temperatureWithCelsius: String {"\(Int(day))°C"}
+ //   var hourlyTemperatureWithCelsius: String {"\(Int(hour))°C"}
 }
 
-// MARK: - Temp
-//struct Temp: Codable {
-//    let day, min, max, night: Double
-//    let eve, morn: Double
-//}
 

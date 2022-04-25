@@ -34,12 +34,6 @@ extension ContactTableViewCell {
         weatherLabel.image = day.weather.first?.image?.withRenderingMode(.alwaysOriginal)
         percentageLabel.text = day.formattedPrecipitation
         degreeLabel.text = day.temperature.temperatureWithCelsius
-        
-        //weatherLabel.image = day.state.icon?.withRenderingMode(.alwaysOriginal)
-        //percentageLabel.text = day.perceptionWithPercentage
-        //degreeLabel.text = day.temperatureWithCelsius
-       // weather.text = weatherDay.weather
-        //weather.image = weatherDay.state.icon?.withRenderingMode(.alwaysOriginal)
     }
 }
 
