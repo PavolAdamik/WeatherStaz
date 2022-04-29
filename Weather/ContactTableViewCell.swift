@@ -29,7 +29,6 @@ class ContactTableViewCell: UITableViewCell {
 
 extension ContactTableViewCell {
     func setupCell(with day: DailyWeather) {
-        
         dayLabel.text = DateFormatter.dayDateFormatter.string(from: day.date)
         weatherLabel.image = day.weather.first?.image?.withRenderingMode(.alwaysOriginal)
         percentageLabel.text = day.formattedPrecipitation

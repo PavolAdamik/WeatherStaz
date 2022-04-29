@@ -39,8 +39,9 @@
         <scene sceneID="Fx4-D6-g5Q">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vAC-ag-T6R" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="star.fill" catalog="system" id="b5O-pf-L7C"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="heart.fill" catalog="system" id="JWY-fJ-7sm"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0ZL-O5-HiA">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -57,7 +58,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

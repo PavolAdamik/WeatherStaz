@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum WeatherState {
+enum WeatherState {     //toto mozem aj vyhodit hadam.. aj ten Launch screen
     case sunny
     case cloudy
     case rainy

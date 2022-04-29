@@ -25,6 +25,14 @@ class LocationManager: CLLocationManager {
         startUpdatingLocation()
         delegate = self
     }
+    
+    func getCoordinates(for city: String, completion: @escaping (CLLocationCoordinate2D) -> Void) {
+        CLGeocoder().geocodeAddressString(city) { placemarks, error in
+            if let coordinates = placemarks?.first?.location?.coordinate {
+                completion(coordinates)
+            }
+        }
+    }
 }
 
 extension LocationManager: CLLocationManagerDelegate {
@@ -46,6 +54,7 @@ extension LocationManager: CLLocationManagerDelegate {
             self.completion?(currentLocation, nil)
         }
     }
+    
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus{
         case .denied:
