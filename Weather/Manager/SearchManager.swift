@@ -38,7 +38,7 @@ class SearchManager: NSObject {     //dorobit to vyhladaavanie
     }
 }
 
-struct Place {
+struct Place: Codable {
     
     let city: String
     let country: String

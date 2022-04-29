@@ -20,6 +20,12 @@ extension DateFormatter {
         timeFormatter.dateFormat = "HH:MM" // .. "HHMM" asi alebo dd.MM
         return timeFormatter
     }()
+    
+    static let mediomDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium // "dd.MM.YYYY" .. medium si urci krajinu / lokaciu a ma v sebe preddefinovane formaty .. ked mam jazyk telefonu nastaveny na anglictinu tak to bude formatovat po anglicky .. ked slovencina tak slovencina -- toto okomentujem XD ..
+        return dateFormatter
+    }()
 }
 
 //extension Timer 

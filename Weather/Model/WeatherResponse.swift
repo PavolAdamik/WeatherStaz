@@ -86,22 +86,22 @@ struct Weather: Decodable {
 
 struct HourlyWeather: Decodable {
     let time: Date
-    //let precipProbability: Double
-    //let temperature: Double
- //   let windSpeed: Double
-   // let weather: [Weather]
+  //  let precipProbability: Double
+    let temperature: Double
+    let windSpeed: Double
+    let weather: [Weather]
     
-  //  var temperatureWithCelsius: String {"\(Int(temperature))°C"}
- //   var formattedWindSpeed: String {"\(windSpeed)km/h"}
-  //  var formattedProbability: String {"\(precipProbability)%"}
+    var temperatureWithCelsius: String {"\(Int(temperature))°C"}
+    var formattedWindSpeed: String {"\(windSpeed)km/h"}
+    //var formattedProbability: String {"\(precipProbability)%"}
 
     
     enum CodingKeys: String, CodingKey {
         case time = "dt"
-   //     case precipProbability = "pop"
-   //     case temperature = "temp"
-       // case windSpeed = "wind_speed"
-    //    case weather
+       // case precipProbability = "pop"
+        case temperature = "temp"
+        case windSpeed = "wind_speed"
+        case weather
     }
 }
 
@@ -125,10 +125,9 @@ struct DailyWeather: Decodable {
 // MARK: - FeelsLike
 struct Temperature: Decodable {
     let day: Double
-//    let hour: Double
     
     var temperatureWithCelsius: String {"\(Int(day))°C"}
-  //  var hourlyTemperatureWithCelsius: String {"\(Int(hour))°C"}
+
 }
 
 

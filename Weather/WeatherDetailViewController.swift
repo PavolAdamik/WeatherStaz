@@ -46,10 +46,41 @@ class WeatherDetailViewController: UIViewController {  // icony cu na bielom poz
         //navigationController?.pushViewController(SearchViewController, animated: true)
     }
     
+    @IBAction func favorite(_ sender: Any) {
+       // UserDefaults.standard.set("Nazdar", forKey: "welcome")
+        let places = [place]
+        if let data = UserDefaults.standard.data(forKey: "Places") {
+            do {
+                let decoder = JSONDecoder()
+                
+                let places = try? decoder.decode([Place].self, from: data)
+            } //catch {
+              //  print("Unable to decode Nodes (\(error)")
+            //}
+        }
+        
+        
+        
+        if let place = place { // s tymto place
+            do {
+                let encoder = JSONEncoder() // alokujem si encoder
+                let data = try? encoder.encode(place) //prepisem si ho na data .. tie data budu s tym mojim place
+                UserDefaults.standard.set(data, forKey: "Place") //tu si ulozim kluc Place
+                                        //namiesto tych dat tam viem mat aj pole a tie tam mozem ukladat
+                //budem mat nejake pole Places .. do nich pridam data a zase cele tie places zakodujem a vytiahnem kedy budem potrebovat.. zobrazim v liste a mam..
+                //take primitivne ukladanie dat.. ide to aj pre objekty a nie len pre primitivne objekty.
+            } //catch {
+              //  print("Unable to encode Node (\(error))")
+            //}
+        }
+        
+    }
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
        // tabBarItem = UITabBarItem(title: "Location", image: UIImage(systemName: "location.fill"), tag: 0) // aj takto saa da vytvorit tabbar.. len toto sa inicializuje aaz po nacitani UIcka
         
@@ -137,8 +168,10 @@ extension WeatherDetailViewController: UICollectionViewDataSource {
         }
 //        hourCell.setupCell(with: hours[indexPath.row]) // tu by malo byt paths .. len mi to tam nejde
     //    return hourCell
+        hourCell.setupCell(with: hours[indexPath.row])
+        return hourCell
         
-        return collectionView.dequeueReusableCell(withReuseIdentifier: "HourlyWeatherCell", for: indexPath)
+       // return collectionView.dequeueReusableCell(withReuseIdentifier: "HourlyWeatherCell", for: indexPath)
     }
 }
 

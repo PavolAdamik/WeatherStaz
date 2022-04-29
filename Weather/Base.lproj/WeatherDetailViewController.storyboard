@@ -154,7 +154,7 @@
                                                 </stackView>
                                             </subviews>
                                         </stackView>
-                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="HourlyWeatherCell" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="E3i-1Z-SzF">
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="HourlyWeatherCell" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="E3i-1Z-SzF">
                                             <rect key="frame" x="8" y="230" width="398" height="123"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -213,6 +213,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Location" image="location.fill" catalog="system" id="fAW-Vc-Ynl"/>
                     <navigationItem key="navigationItem" title="Weather" id="3gN-mE-65L">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="Hge-54-v49">
+                            <connections>
+                                <action selector="favorite:" destination="BYZ-38-t0r" id="ajk-o4-8SA"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="search" id="wbc-u0-Jju">
                             <color key="tintColor" red="0.0" green="0.1806615006842581" blue="0.96230299346301029" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
