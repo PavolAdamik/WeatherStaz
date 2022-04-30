@@ -17,7 +17,7 @@ struct RequestManager {
         let request = WeatherRequest(
             latitude: "\(coordinates.latitude)",
             longitude: "\(coordinates.longitude)",
-            exclude: "minutely,alerts",
+            exclude: "minutely",
             appId: "249111a3312d9fedd886bcba0447f6e7",//7
             units: "metric"
         )

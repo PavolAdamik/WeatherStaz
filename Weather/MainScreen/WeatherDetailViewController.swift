@@ -55,13 +55,45 @@ class WeatherDetailViewController: UIViewController {  // icony cu na bielom poz
         
         tableView.dataSource = self
         //tableView.delegate = self
-                
+        //setupTableView()
+       // updateLocation()
+       // setupCollectionView()
+        
         if let place  = place {
-            LocationManager.shared.getCoordinates(for: place.city) { coordinates in
-                self.loadData()
+            LocationManager.shared.getCoordinates(for: place.city) { coordinates in //pamata si to tu lokaciu ale updatnem na nu..
+                //self.reloadState()
+                //self.refreshControl.endRefreshing()
+               // self.activityIdentificator.stopAnimating()
+                //self.loadData()
+                
+               // refreshControl.endRefreshing()
+              //  self.updateLocation()
+                
+                //guard let location = coordinates else {
+                //    return
+                //}
+                
+               // self.state = .loading
+               // self.updateLocation()
+                
+                RequestManager.shared.getWeatherData(for: coordinates) { [weak self] response in
+                    guard let self = self else {return}
+                    
+                    switch response {
+                    case.success(let weatherData):
+                        self.state = .success(weatherData)
+                    case.failure(let error):
+                        self.state = .error(error.localizedDescription)
+                        
+                    }
+                }
+                //self.setupView(with: <#T##CurrentWeather#>)
+//self.updateLocation()
+                self.setupTableView()
+                self.setupCollectionView()
             }
         } else {
-           // activityIdentificator.startAnimating()
+           // uvodna obrazovka
             setupTableView()
             updateLocation()
             setupCollectionView()
@@ -94,7 +126,7 @@ private extension WeatherDetailViewController {
         if let navigationController = storyboard.instantiateInitialViewController() {
             present (navigationController, animated: true)
         }
-        //navigationController?.pushViewController(SearchViewController, animated: true)
+        //            navigationController?.pushViewController(SearchViewController, animated: true
     }
     
     @IBAction func favorite(_ sender: Any) {
@@ -192,7 +224,7 @@ private extension WeatherDetailViewController {
             days = weatherData.days
             hours = weatherData.hourly //ale ci to je dobre to nvm
             collectionView.reloadData()
-           // self.collectionView.reloadSections(IndexSet(integer: 0), with: .automatic)
+            //collectionView.reloadSections(IndexSet(integer: 0), with: .automatic)
             tableView.reloadSections(IndexSet(integer: 0), with: .automatic) // ze je to nebezpecne ked je viac veci v tableView .. ale my mame len jednu (teda oni) .. ja uz mam minimalne 2 jak nie aj 4// no proste aniimacie jak v prezentacii XD
         }
     }
@@ -210,7 +242,7 @@ private extension WeatherDetailViewController {
         
         state = .loading
         
-        RequestManager.shared.getWeatherData(for: location.coordinates) { [weak self] response in // location.coordinates by tu malo byt
+        RequestManager.shared.getWeatherData(for: location.coordinates) { [weak self] response in
             guard let self = self else {return}
             
             switch response {
@@ -228,6 +260,7 @@ private extension WeatherDetailViewController {
             guard let self = self else { return}
             if let error = error {
                 self.state = .error(error.localizedDescription)    //self.presentAlert() // toto tu uz nema .. nema chybu kvoli tomuto ?
+                self.presentAlert()
             } else if let location = location {
                 self.location = location
                 self.loadData()
@@ -254,27 +287,23 @@ extension WeatherDetailViewController: UITableViewDataSource {
 extension WeatherDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) ->
     Int {
-        return hours.count
-       // return 16
+        return hours.count // to vrati az 48 asi
+        //return 24
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let hourCell = collectionView.dequeueReusableCell(withReuseIdentifier: HourlyWeatherCell.classString, for: indexPath) as? //aj tu paths
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPaths: IndexPath) -> UICollectionViewCell {
+        guard let hourCell = collectionView.dequeueReusableCell(withReuseIdentifier: HourlyWeatherCell.classString, for: indexPaths) as? //aj tu paths
                 HourlyWeatherCell else {
             return UICollectionViewCell()
         }
-//        hourCell.setupCell(with: hours[indexPath.row]) // tu by malo byt paths .. len mi to tam nejde
-    //    return hourCell
-        hourCell.setupCell(with: hours[indexPath.row])
+        hourCell.setupCell(with: hours[indexPaths.row])
         return hourCell
-        
-       // return collectionView.dequeueReusableCell(withReuseIdentifier: "HourlyWeatherCell", for: indexPath)
     }
 }
 
 extension WeatherDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 100)
+        return CGSize(width: 150, height: 150)
     }
 }
 

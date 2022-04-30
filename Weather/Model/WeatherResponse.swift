@@ -89,12 +89,11 @@ struct HourlyWeather: Decodable {
   //  let precipProbability: Double
     let temperature: Double
     let windSpeed: Double
-    let weather: [Weather]
+    let weather: [Weather] //hadze mi to stale ten defaultny moon.circle
     
     var temperatureWithCelsius: String {"\(Int(temperature))°C"}
     var formattedWindSpeed: String {"\(windSpeed)km/h"}
     //var formattedProbability: String {"\(precipProbability)%"}
-
     
     enum CodingKeys: String, CodingKey {
         case time = "dt"
