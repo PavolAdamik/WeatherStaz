@@ -18,7 +18,7 @@ struct RequestManager {
             latitude: "\(coordinates.latitude)",
             longitude: "\(coordinates.longitude)",
             exclude: "minutely,alerts",
-            appId: "249111a3312d9fedd886bcba0447f6e7",
+            appId: "249111a3312d9fedd886bcba0447f6e7",//7
             units: "metric"
         )
         
