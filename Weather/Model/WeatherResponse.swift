@@ -18,10 +18,12 @@ struct WeatherResponse: Decodable {
     let current: CurrentWeather
     let days: [DailyWeather]
     let hourly: [HourlyWeather]
+   // let alerts: [Alerts]
     
     enum CodingKeys: String, CodingKey {
         case hourly = "hourly"
         case days = "daily"
+  //      case alerts = "alerts"
         case current
     }
 }
@@ -37,8 +39,6 @@ struct CurrentWeather: Decodable {
     
     var temperatureWithCelsius: String {"\(Int(temperature))°C"}
     var formattedFeelsLike: String {"Feels like \(Int(feelsLike))°C"}
-    //var formattedSunRise: String  {"\(sunrise)"}
-    //var formattedSunSet: String {"\(sunset)"}
 
     enum CodingKeys: String, CodingKey {
         case date = "dt"
@@ -84,12 +84,14 @@ struct Weather: Decodable {
     }
 }
 
+// MARK: - Hourly
+
 struct HourlyWeather: Decodable {
     let time: Date
   //  let precipProbability: Double
     let temperature: Double
     let windSpeed: Double
-    let weather: [Weather] //hadze mi to stale ten defaultny moon.circle
+    let weather: [Weather]
     
     var temperatureWithCelsius: String {"\(Int(temperature))°C"}
     var formattedWindSpeed: String {"\(windSpeed)km/h"}
@@ -105,6 +107,7 @@ struct HourlyWeather: Decodable {
 }
 
 // MARK: - Daily
+
 struct DailyWeather: Decodable {
     let date: Date
     let temperature: Temperature
@@ -112,6 +115,7 @@ struct DailyWeather: Decodable {
     let precipitation: Double
     
     var formattedPrecipitation: String {"\(Int(precipitation * 100))%"}
+    //var temperatureWithCelsius: String {"\(Int(temperature))°C"}
 
     enum CodingKeys: String, CodingKey {
         case date = "dt"
@@ -127,6 +131,25 @@ struct Temperature: Decodable {
     
     var temperatureWithCelsius: String {"\(Int(day))°C"}
 
+}
+
+// MARK: - Alerts
+
+struct Alerts : Decodable {
+    let title: String
+    let description: String
+   // let start: Double
+   // let end: Double
+   // let sender_name: String
+    
+    
+    enum CodingKeys: String, CodingKey {
+        case title = "event"
+        case description = "description"
+     //   case start = "start"
+     //   case end = "end"
+    //    case sender_name = "sender_name"
+    }
 }
 
 

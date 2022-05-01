@@ -7,11 +7,40 @@
 
 import UIKit
 
-class FavoritesViewController: UIViewController { //ked chcem zmenit faarbu cisto len jednemu z tab ikoniek tak sa to da ? .. lebo vzdy som zmenil len farbu celeho
+class FavoritesViewController: UIViewController { 
 
-    override func viewDidLoad() {       //taka sprosta otazka .. nadpis ?
+/*    override func viewDidLoad() {       //taka sprosta otazka .. nadpis ?
         super.viewDidLoad()
-
+    
+        
+    private var places: Set<String>
+    
+    private let safeKey = "Favorites"
+        
+        init() {
+            //load saved data
+            self.places = []
+        }
+        
+        func contains(_ place: Place) -> Bool {
+            places.contains(place.city)
+        }
+        
+        func add(_ place: Place) {
+            objectWillChange.send()
+            places.insert(place.city)
+            save()
+        }
+        
+        func remove(_ place: Place) {
+            objectWillChange.send()
+            places.remove(place.city)
+            save()
+        }
+        
+        func save() {
+            
+        }
    /*
         //nieco na tento princip
         Button(favorites.contains(resort))? "Remove from favorites" : "Add to Favorites") {
@@ -23,7 +52,9 @@ class FavoritesViewController: UIViewController { //ked chcem zmenit faarbu cist
         }
         .padding()
     */
-    }
     
+    }
+ */
+
 
 }

@@ -50,6 +50,8 @@ class LocationManager: CLLocationManager {
     }
 }
 
+// MARK:  - Location Manager - Delegate & Autorization Status
+
 extension LocationManager: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

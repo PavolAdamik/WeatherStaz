@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HourlyWeatherCell: UICollectionViewCell {
+class HourlyWeatherCell: UICollectionViewCell { // velkost celly ? .. popripade to co ide doboku
     
     // MARK: - Static
     
@@ -22,6 +22,8 @@ class HourlyWeatherCell: UICollectionViewCell {
      @IBOutlet weak var celsiusLabel: UILabel!
      @IBOutlet weak var windSpeedLabel: UILabel!
 }
+
+// MARK: - Public
 
 extension HourlyWeatherCell {
     func setupCell(with hour: HourlyWeather) {

@@ -15,7 +15,7 @@ enum State {
 }
 
 //@main
-class WeatherDetailViewController: UIViewController {  // icony cu na bielom pozadi biele
+class WeatherDetailViewController: UIViewController {  // icony mozu byt ?
     
     // MARK: - Outlets
     
@@ -131,7 +131,7 @@ private extension WeatherDetailViewController {
     
     @IBAction func favorite(_ sender: Any) {
        // UserDefaults.standard.set("Nazdar", forKey: "welcome")
-        let places = [place]
+        let places = [Place]()
         if let data = UserDefaults.standard.data(forKey: "Places") {
             do {
                 let decoder = JSONDecoder()
@@ -284,6 +284,8 @@ extension WeatherDetailViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - Collection View Data Source
+
 extension WeatherDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) ->
     Int {
@@ -303,7 +305,7 @@ extension WeatherDetailViewController: UICollectionViewDataSource {
 
 extension WeatherDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 150, height: 150)
+        return CGSize(width: 150, height: 125)
     }
 }
 

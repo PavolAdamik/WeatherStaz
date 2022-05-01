@@ -28,6 +28,7 @@
 		09A917CC280B6D6700FA8B5F /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09A917CB280B6D6700FA8B5F /* MapViewController.storyboard */; };
 		09A917D2280B6EB900FA8B5F /* FavoritesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09A917D1280B6EB900FA8B5F /* FavoritesViewController.storyboard */; };
 		09A917D4280B6FBE00FA8B5F /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A917D3280B6FBE00FA8B5F /* FavoritesViewController.swift */; };
+		09BE6367281EB2F6008400C2 /* AlertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BE6366281EB2F6008400C2 /* AlertsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		09A917CB280B6D6700FA8B5F /* MapViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
 		09A917D1280B6EB900FA8B5F /* FavoritesViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoritesViewController.storyboard; sourceTree = "<group>"; };
 		09A917D3280B6FBE00FA8B5F /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		09BE6366281EB2F6008400C2 /* AlertsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 		0943DD30280171C500315E8E /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				09BE635D281EA565008400C2 /* Alerts */,
 				09A917CA280B6D4300FA8B5F /* Map */,
 				09A917C9280B6CE200FA8B5F /* Favorites */,
 				09A917C8280B6CC100FA8B5F /* Tabbar */,
@@ -243,6 +246,14 @@
 				090B666927F10C720003AE16 /* WeatherDetailViewController.swift */,
 			);
 			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		09BE635D281EA565008400C2 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				09BE6366281EB2F6008400C2 /* AlertsViewController.swift */,
+			);
+			path = Alerts;
 			sourceTree = "<group>";
 		};
 		09F1EEE3281428680044CA43 /* HourlyForecast */ = {
@@ -407,6 +418,7 @@
 				0943DD3728023A7A00315E8E /* LocationManager.swift in Sources */,
 				090B666627F10C720003AE16 /* AppDelegate.swift in Sources */,
 				099EBB3328132D020021989A /* RequestManager.swift in Sources */,
+				09BE6367281EB2F6008400C2 /* AlertsViewController.swift in Sources */,
 				099EBB2C2812F5BA0021989A /* SearchManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

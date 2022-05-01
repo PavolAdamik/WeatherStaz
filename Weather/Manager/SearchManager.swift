@@ -10,7 +10,7 @@ import MapKit
 
 typealias LocalSearchCompletionHandler = (([Place]) -> Void)
 
-class SearchManager: NSObject {     //dorobit to vyhladaavanie
+class SearchManager: NSObject {
     
     // MARK: - Constants
     
