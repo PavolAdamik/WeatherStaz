@@ -28,6 +28,7 @@
 		09A917CC280B6D6700FA8B5F /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09A917CB280B6D6700FA8B5F /* MapViewController.storyboard */; };
 		09A917D2280B6EB900FA8B5F /* FavoritesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09A917D1280B6EB900FA8B5F /* FavoritesViewController.storyboard */; };
 		09A917D4280B6FBE00FA8B5F /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A917D3280B6FBE00FA8B5F /* FavoritesViewController.swift */; };
+		09AD26E0282980A100EB9B59 /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AD26DF282980A100EB9B59 /* FavoriteManager.swift */; };
 		09BE6367281EB2F6008400C2 /* AlertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BE6366281EB2F6008400C2 /* AlertsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		09A917CB280B6D6700FA8B5F /* MapViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
 		09A917D1280B6EB900FA8B5F /* FavoritesViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoritesViewController.storyboard; sourceTree = "<group>"; };
 		09A917D3280B6FBE00FA8B5F /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		09AD26DF282980A100EB9B59 /* FavoriteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteManager.swift; sourceTree = "<group>"; };
 		09BE6366281EB2F6008400C2 /* AlertsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,6 +170,7 @@
 				0943DD3628023A7A00315E8E /* LocationManager.swift */,
 				099EBB2B2812F5BA0021989A /* SearchManager.swift */,
 				099EBB3228132D020021989A /* RequestManager.swift */,
+				09AD26DF282980A100EB9B59 /* FavoriteManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				099EBB3528134D540021989A /* WeatherRequest.swift in Sources */,
+				09AD26E0282980A100EB9B59 /* FavoriteManager.swift in Sources */,
 				09314825281B6673006855DB /* HourlyWeatherCell.swift in Sources */,
 				099EBB3828135F220021989A /* Formatter.swift in Sources */,
 				09611DAC27FB851E00B73975 /* ContactTableViewCell.swift in Sources */,

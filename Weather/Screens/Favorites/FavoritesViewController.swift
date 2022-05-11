@@ -7,7 +7,19 @@
 
 import UIKit
 
-class FavoritesViewController: UIViewController { 
+class FavoritesViewController: UIViewController {  // naazov,
+    
+    private let favoriteManager =  FavoriteManager()
+    
+   // let dekodovaneData = favor
+
+    
+    
+    
+    
+    
+    
+    
 
 /*    override func viewDidLoad() {       //taka sprosta otazka .. nadpis ?
         super.viewDidLoad()

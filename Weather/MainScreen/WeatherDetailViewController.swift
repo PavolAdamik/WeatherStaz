@@ -37,7 +37,12 @@ class WeatherDetailViewController: UIViewController {  // icony mozu byt ?
     // MARK:  - Variables
     
     var place:Place?
-    var location: CurrentLocation?
+    var location: CurrentLocation? {
+        didSet {
+            loadData()
+        }
+    }
+    var content = UNMutableNotificationContent() // let ?
     var locationManager = LocationManager()
     var refreshControl = UIRefreshControl()
     var days = [DailyWeather]()
@@ -53,52 +58,26 @@ class WeatherDetailViewController: UIViewController {  // icony mozu byt ?
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.dataSource = self
-        //tableView.delegate = self
-        //setupTableView()
-       // updateLocation()
-       // setupCollectionView()
+        //setupNotification()
+        
+        
+        setupTableView()
+        setupCollectionView()
         
         if let place  = place {
-            LocationManager.shared.getCoordinates(for: place.city) { coordinates in //pamata si to tu lokaciu ale updatnem na nu..
-                //self.reloadState()
-                //self.refreshControl.endRefreshing()
-               // self.activityIdentificator.stopAnimating()
-                //self.loadData()
+            LocationManager.shared.getCoordinates(for: place.city) { coordinates in
+                self.location = CurrentLocation(city: place.city, coordinates: coordinates)
                 
-               // refreshControl.endRefreshing()
-              //  self.updateLocation()
+                //spravit objekt a inicializovat tie coordinaty
+                //didset sa zavola ked sa inicializuje objekt
                 
-                //guard let location = coordinates else {
-                //    return
-                //}
-                
-               // self.state = .loading
-               // self.updateLocation()
-                
-                RequestManager.shared.getWeatherData(for: coordinates) { [weak self] response in
-                    guard let self = self else {return}
-                    
-                    switch response {
-                    case.success(let weatherData):
-                        self.state = .success(weatherData)
-                    case.failure(let error):
-                        self.state = .error(error.localizedDescription)
-                        
-                    }
-                }
-                //self.setupView(with: <#T##CurrentWeather#>)
-//self.updateLocation()
-                self.setupTableView()
-                self.setupCollectionView()
+                //pamata si to tu lokaciu ale updatnem na nu..
+                self.loadData()
             }
         } else {
-           // uvodna obrazovka
-            setupTableView()
-            updateLocation()
-            setupCollectionView()
+            // uvodna obrazovka
             LocationManager.shared.onAuthorizationChange { authorized in
-                if authorized {
+                if authorized { //!= nil
                     self.updateLocation()
                 } else  {
                     //nemam zapnutu lokacciu .. present empty state
@@ -110,7 +89,11 @@ class WeatherDetailViewController: UIViewController {  // icony mozu byt ?
                 updateLocation()
             }
         }
+        tableView.dataSource = self
+        tableView.delegate = self
+        setupNotification()
     }
+    
 }
 
 // MARK: - Actions
@@ -131,16 +114,16 @@ private extension WeatherDetailViewController {
     
     @IBAction func favorite(_ sender: Any) {
        // UserDefaults.standard.set("Nazdar", forKey: "welcome")
-        let places = [Place]()
-        if let data = UserDefaults.standard.data(forKey: "Places") {
-            do {
-                let decoder = JSONDecoder()
-                
-                let places = try? decoder.decode([Place].self, from: data)
-            } //catch {
-              //  print("Unable to decode Nodes (\(error)")
-            //}
-        }
+//        let places = [Place]()
+//        if let data = UserDefaults.standard.data(forKey: "Places") {
+//            do {
+//                let decoder = JSONDecoder()
+//
+//                let places = try? decoder.decode([Place].self, from: data)
+//            } //catch {
+//              //  print("Unable to decode Nodes (\(error)")
+//            //}
+//        }
         
         if let place = place { // s tymto place
             do {
@@ -162,6 +145,19 @@ private extension WeatherDetailViewController {
 // MARK: - Setup
 
 private extension WeatherDetailViewController {
+    
+    func setupNotification() {
+        content.title = "Weather"
+       // content.body = "Today's weather: \(temperatureLabel.text)"
+        content.body = "Don't forget chack the  weather!"
+        content.sound = UNNotificationSound.default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false) // nechcem to opakovat
+        
+        let request = UNNotificationRequest(identifier: "testIdentifier", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
     
     func setupTableView() {
         tableView.isHidden = true
@@ -241,7 +237,7 @@ private extension WeatherDetailViewController {
         }
         
         state = .loading
-        
+      
         RequestManager.shared.getWeatherData(for: location.coordinates) { [weak self] response in
             guard let self = self else {return}
             
@@ -281,6 +277,12 @@ extension WeatherDetailViewController: UITableViewDataSource {
         }
         weatherCell.setupCell(with: days[indexPaths.row])
     return weatherCell
+    }
+}
+
+extension WeatherDetailViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
+        return 56
     }
 }
 

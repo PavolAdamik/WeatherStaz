@@ -15,8 +15,20 @@ class AlertsViewController: UIViewController {
     //private let searchController = UISearchController(searchResultsController: nil)
    // private let searchManager =  SearchManager()
    // private var places = [Place]()
+    // MARK: - Static
     
-    private var alert: Alerts?
+   // struct Alerts: Codable {
+        
+  //      let eventA: String
+  //      let descriptionA: String
+  //  }
+    
+    static var classString: String {
+        String(describing: Self.self)
+    }
+    
+    private var alert: AlertsOfWeather?
+    //private var alerts = [AlertsOfWeather]()
     
 //    func setupView(with alert: Alerts) {
 //        eventNameLabel.text = alert.title
@@ -26,18 +38,31 @@ class AlertsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        skuska()
+        //skuska()
         // if alert != nil {
         //     setupView(with: alert)
         // }
         //eventNameLabel.text = alert?.title
         //alertDesctiptionLabel.text = alert?.description
+        if let alert = alert {
+        //eventNameLabel.text = alert.title
+        //alertDesctiptionLabel.text = alert.description
+            setupView(with: alert)
+        }
+        
+       // guard let alert = alert else {
+       //     return
+       // }
+      //  setupView(with: alert)
+     //   eventNameLabel.text = alert.title
+     //   alertDesctiptionLabel.text = alert.description
+
     }
 
 }
 
 extension AlertsViewController {
-    func setupView(with alert: Alerts) {
+    func setupView(with alert: AlertsOfWeather) {
         eventNameLabel.text = alert.title
         alertDesctiptionLabel.text = alert.description
     }

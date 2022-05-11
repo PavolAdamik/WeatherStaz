@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {      //sfinalizovat search
+class SearchViewController: UIViewController {
     
     //MARK: - Outlets
     
@@ -28,7 +28,6 @@ class SearchViewController: UIViewController {      //sfinalizovat search
         super.viewDidLoad()
         setupSearchController()
     }
-    
     
     func setupSearchController() {
         //navigationController?.title  = "Search"

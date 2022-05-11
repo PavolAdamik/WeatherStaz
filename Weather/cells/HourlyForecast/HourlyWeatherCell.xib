@@ -42,7 +42,6 @@
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vxY-Kk-cGG">
                                         <rect key="frame" x="64" y="0.0" width="32" height="24"/>
-                                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="32" id="VJM-JQ-Sia"/>
                                         </constraints>
@@ -57,21 +56,18 @@
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IJK-6I-cdW">
                                         <rect key="frame" x="126" y="0.0" width="8" height="24"/>
-                                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="1b2-uq-jth"/>
                                             <constraint firstAttribute="width" constant="8" id="MIK-2Y-hrV"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="m8Q-kT-UYw">
                                 <rect key="frame" x="8" y="93" width="112" height="24"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MZV-IL-IMx">
                                         <rect key="frame" x="0.0" y="0.0" width="8" height="24"/>
-                                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="8" id="nM8-dx-PRW"/>
                                         </constraints>
@@ -85,7 +81,6 @@
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rbz-z3-zWg">
                                         <rect key="frame" x="50" y="0.0" width="8" height="24"/>
-                                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="2no-RJ-96h"/>
                                             <constraint firstAttribute="width" constant="8" id="Yfh-OQ-Zhh"/>
@@ -100,7 +95,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="tertiarySystemFillColor"/>
                         <constraints>
                             <constraint firstItem="m8Q-kT-UYw" firstAttribute="top" secondItem="ZR5-nz-qA9" secondAttribute="bottom" constant="16" id="39W-r3-fxy"/>
                             <constraint firstItem="mkD-aS-5dg" firstAttribute="centerX" secondItem="l3i-kj-STl" secondAttribute="centerX" id="K4X-Eg-V5u"/>
@@ -128,14 +123,14 @@
                 <outlet property="timeLabel" destination="mkD-aS-5dg" id="jvf-Ha-BpQ"/>
                 <outlet property="windSpeedLabel" destination="PX2-M0-UX9" id="gOd-qX-piO"/>
             </connections>
-            <point key="canvasLocation" x="23.4375" y="71.739130434782609"/>
+            <point key="canvasLocation" x="49" y="70"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="cloud.sun.fill" catalog="system" width="128" height="95"/>
         <image name="wind" catalog="system" width="128" height="103"/>
-        <systemColor name="systemGroupedBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="tertiarySystemFillColor">
+            <color red="0.46274509803921571" green="0.46274509803921571" blue="0.50196078431372548" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

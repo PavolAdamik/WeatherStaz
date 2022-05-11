@@ -18,13 +18,13 @@ struct WeatherResponse: Decodable {
     let current: CurrentWeather
     let days: [DailyWeather]
     let hourly: [HourlyWeather]
-   // let alerts: [Alerts]
+  //  let alert: AlertsOfWeather
     
     enum CodingKeys: String, CodingKey {
         case hourly = "hourly"
         case days = "daily"
-  //      case alerts = "alerts"
-        case current
+    //    case alert = "alerts"
+        case current//, alert
     }
 }
 
@@ -135,7 +135,7 @@ struct Temperature: Decodable {
 
 // MARK: - Alerts
 
-struct Alerts : Decodable {
+struct AlertsOfWeather : Decodable {
     let title: String
     let description: String
    // let start: Double
