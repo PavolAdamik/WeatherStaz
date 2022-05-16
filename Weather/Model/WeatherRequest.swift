@@ -13,12 +13,14 @@ struct WeatherRequest: Encodable {
     let longitude: String
     let exclude: String
     let appId: String
+    let lang: String
     let units: String
     
     enum CodingKeys: String, CodingKey {
         case latitude = "lat"
         case longitude = "lon"
         case appId = "appid"
-        case units, exclude
+        case lang = "lang"
+        case units, exclude//, lang
     }
 }

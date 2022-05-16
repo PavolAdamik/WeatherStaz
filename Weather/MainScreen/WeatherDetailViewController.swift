@@ -172,9 +172,18 @@ private extension WeatherDetailViewController {
     }
     
     func setupView(with currentWeather: CurrentWeather) {
+        var pom = " "
+        if let language = Locale.current.languageCode {
+            switch language {
+            case "sk":
+                pom = "Pocitová teplota"
+            default:
+                pom = "Feels like"
+            }
+        }
         locationLabel.text = location?.city
         temperatureLabel.text = currentWeather.temperatureWithCelsius
-        feelsLikeLabel.text = currentWeather.formattedFeelsLike
+        feelsLikeLabel.text = pom + currentWeather.formattedFeelsLike
         weatherStatusLabel.text = currentWeather.weather.first?.description
         sunRiseLabel.text = DateFormatter.timeFormatter.string(from: currentWeather.sunrise)
         sunSetLabel.text = DateFormatter.timeFormatter.string(from: currentWeather.sunset)
@@ -255,7 +264,7 @@ private extension WeatherDetailViewController {
         LocationManager.shared.getLocation { [weak self] location, error in // weak preto lebo ked  pristupujem k sebe ako k referencii a pristupujem k nej priamo tak mi ten controller to dokaze drzat v pamati.. cize ked sa to dealokuje tak to moze ostat v pamati a to nechcem
             guard let self = self else { return}
             if let error = error {
-                self.state = .error(error.localizedDescription)    //self.presentAlert() // toto tu uz nema .. nema chybu kvoli tomuto ?
+                self.state = .error(error.localizedDescription)
                 self.presentAlert()
             } else if let location = location {
                 self.location = location
