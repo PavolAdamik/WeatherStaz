@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AlertsViewController: UIViewController {
+class AlertsViewController: UIViewController { // budu samozrejme len v anglictine.. ked su alerty tak to zobrazi ale ked to neposkytuje alerty tak to jebne
     
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var alertDesctiptionLabel: UILabel!
@@ -25,11 +25,29 @@ class AlertsViewController: UIViewController {
         //     setupView(with: alert)
         // }
         
-        alert.title = WeatherDetailViewController.wd?.alert[0].title ?? "Alerts"
-        alert.description = WeatherDetailViewController.wd?.alert[0].description ?? "No alerts for this city"
-        alert.sender_name = WeatherDetailViewController.wd?.alert[0].sender_name ?? "No name"
-
+       // if alert == 0 {
+            
+       // }
+        if alert.description == "" {
+            print("alert je ' ") //takze to je "
+        }
+        
+        if alert != nil {
+            print("alert nie je nil")
+        }
+                                
+       // if (WeatherDetailViewController.wd?.alert[0].title == "") {
+//        if alert.description == "" {
+//            alert.title = "Alerts"
+//            alert.description = "No alerts for this city at this time!"
+//            alert.sender_name = "Nobody"
+//        } else {
+        
+        alert.title = WeatherDetailViewController.wd?.alert?[0].title ?? "Alerts"
+        alert.description = WeatherDetailViewController.wd?.alert?[0].description ?? "No alerts for this city"
+        alert.sender_name = WeatherDetailViewController.wd?.alert?[0].sender_name ?? "If there is no article, there is no author"
         setupView(with: alert)
+//        }
 
     }
 

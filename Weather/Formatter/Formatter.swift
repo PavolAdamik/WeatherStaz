@@ -17,7 +17,7 @@ extension DateFormatter {
    
     static let timeFormatter: DateFormatter = {
         let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "HH:MM" // .. "HHMM" asi alebo dd.MM
+        timeFormatter.dateFormat = "HH:MM" // .. "HHMM" alebo dd.MM
         return timeFormatter
     }()
     

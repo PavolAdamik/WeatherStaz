@@ -7,11 +7,15 @@
 
 import Foundation
 
+typealias FavoritesCompletionHandler = (([Place]) -> Void)
+
 class FavoriteManager : NSObject {
 
 //struct FavoriteManager {
     
     static let shared = FavoriteManager()
+    
+    let favorites = FavoritesCompletionHandler.self
         
     func decode() {
         let places = [Place]()
@@ -25,5 +29,8 @@ class FavoriteManager : NSObject {
             //}
         }
     }
+    
+    
+    
     
 }

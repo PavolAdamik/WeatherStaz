@@ -20,11 +20,12 @@ class FavoritesViewController: UIViewController {  // naazov,
    //     let wvc = tabBarController as! WeatherDetailViewController
 
   //      print("CITY name " + wvc.cityName)
-        decode()
+       // decode()
+        favoriteManager.decode()
         
-        
-    }
-    
+
+/*
+    -8
     func decode() {
         let places = [Place]()
         if let data = UserDefaults.standard.data(forKey: "Places") {
@@ -38,7 +39,7 @@ class FavoritesViewController: UIViewController {  // naazov,
             //}
         }
     }
-    
+  */
    // let dekodovaneData = favor
 
 //    let places = [Place]()
@@ -106,4 +107,5 @@ class FavoritesViewController: UIViewController {  // naazov,
  */
 
 
+}
 }

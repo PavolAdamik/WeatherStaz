@@ -18,7 +18,11 @@ struct WeatherResponse: Decodable {
     let current: CurrentWeather
     let days: [DailyWeather]
     let hourly: [HourlyWeather]
-    let alert: [AlertsOfWeather]
+    var alert: [AlertsOfWeather]?
+    
+//    if AlertsOfWeather == nil {
+//        
+//    }
     
     enum CodingKeys: String, CodingKey {
         case hourly = "hourly"

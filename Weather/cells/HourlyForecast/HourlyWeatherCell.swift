@@ -16,9 +16,8 @@ class HourlyWeatherCell: UICollectionViewCell { // velkost celly ? .. popripade 
     }
     // MARK: - Outlets
 
-    @IBOutlet weak var timeLabel: UILabel!
+     @IBOutlet weak var timeLabel: UILabel!
      @IBOutlet weak var imageLabel: UIImageView!
-     //@IBOutlet weak var percentageLabel: UILabel!
      @IBOutlet weak var celsiusLabel: UILabel!
      @IBOutlet weak var windSpeedLabel: UILabel!
 }
@@ -27,9 +26,8 @@ class HourlyWeatherCell: UICollectionViewCell { // velkost celly ? .. popripade 
 
 extension HourlyWeatherCell {
     func setupCell(with hour: HourlyWeather) {
-        timeLabel.text = DateFormatter.timeFormatter.string(from: hour.time) // toto by uz mohlo ist .. aj ked .. beriem ten cas ako date a nie ako int ..
+        timeLabel.text = DateFormatter.timeFormatter.string(from: hour.time)
         imageLabel.image = hour.weather.first?.image?.withRenderingMode(.alwaysOriginal)
-           //percentageLabel.text = hour.formattedProbability
         celsiusLabel.text = hour.temperatureWithCelsius
           windSpeedLabel.text = hour.formattedWindSpeed
     }

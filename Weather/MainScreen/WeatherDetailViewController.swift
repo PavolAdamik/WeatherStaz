@@ -15,8 +15,8 @@ enum State {
 }
 
 //@main
-class WeatherDetailViewController: UIViewController {  // icony mozu byt ?
-    
+class WeatherDetailViewController: UIViewController { //zacal by som chybami .. ze pozri sa na to ked je vypnuta lokacia tak tam neukaze hento a hento.. ked je vypnuta wifi tak tiez tabulecka, jazyk, atd. //zmenene icony, search, sunrise, sunset, preklad, nottifikacie, .. co nejde je ta lokalizacia Ziliny napr, da sa to skrolovat, je tam horizontalna cella, doboku, ohdinova predpoved, praca s apickami
+
     // MARK: - Outlets
     
     @IBOutlet weak var tableView: UITableView!
