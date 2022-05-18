@@ -1,3 +1,11 @@
+/* 
+  Localizable.strings
+  Weather
+
+  Created by Pavol Adamík on 18/05/2022.
+  
+*/
+
 
 /* Class = "UILabel"; text = "[time set]"; ObjectID = "0zN-Tm-uQY"; */
 "0zN-Tm-uQY.text" = "[čas set]";
@@ -34,4 +42,3 @@
 
 /* Class = "UITabBarItem"; title = "Location"; ObjectID = "fAW-Vc-Ynl"; */
 "fAW-Vc-Ynl.title" = "Poloha";
-

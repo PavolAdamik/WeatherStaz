@@ -34,6 +34,8 @@ class WeatherDetailViewController: UIViewController {  // icony mozu byt ?
     @IBOutlet weak var errorMessageLabel: UILabel!
     @IBOutlet weak var emptyView: UIView!
     
+    //  MARK: - Static
+    
     static var wd: WeatherResponse?
     
     // MARK:  - Variables
@@ -197,7 +199,7 @@ private extension WeatherDetailViewController {
     }
     
     func presentAlert() {
-        let alertController = UIAlertController(title: "Toto je title", message: "Toto je message", preferredStyle: .actionSheet) //.action - sposob prezentovania toho allertu a actionSheer
+        let alertController = UIAlertController(title: "Something went wrong", message: "Whatt about connetion ? or localization ?", preferredStyle: .actionSheet) //.action - sposob prezentovania toho allertu a actionSheer
         let okAction = UIAlertAction(title: "OK", style: .cancel)
         let settingsAction = UIAlertAction(title: "Settings", style: .default) { action in
             guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {

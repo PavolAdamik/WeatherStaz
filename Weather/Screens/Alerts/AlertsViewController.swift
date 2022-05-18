@@ -11,8 +11,10 @@ class AlertsViewController: UIViewController {
     
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var alertDesctiptionLabel: UILabel!
+    @IBOutlet weak var senderNameLabel: UILabel!
+
     
-    // MARK: - Static
+    // MARK: - Staticfrom
     
     private var alert = AlertsOfWeather()// = AlertsOfWeather()
     
@@ -25,6 +27,8 @@ class AlertsViewController: UIViewController {
         
         alert.title = WeatherDetailViewController.wd?.alert[0].title ?? "Alerts"
         alert.description = WeatherDetailViewController.wd?.alert[0].description ?? "No alerts for this city"
+        alert.sender_name = WeatherDetailViewController.wd?.alert[0].sender_name ?? "No name"
+
         setupView(with: alert)
 
     }
@@ -35,6 +39,7 @@ extension AlertsViewController {
     func setupView(with alert: AlertsOfWeather) {
         eventNameLabel.text = alert.title
         alertDesctiptionLabel.text = alert.description
+        senderNameLabel.text = alert.sender_name
     }
 }
 

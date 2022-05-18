@@ -55,6 +55,12 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[sender name]" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ph-bO-zqR">
+                                                <rect key="frame" x="32" y="215.5" width="350" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -63,8 +69,11 @@
                                             <constraint firstItem="UZv-oX-Vp1" firstAttribute="leading" secondItem="eWu-nt-cDp" secondAttribute="leading" constant="8" id="MU8-Cb-K7q"/>
                                             <constraint firstItem="UZv-oX-Vp1" firstAttribute="top" secondItem="Q3d-8S-Xxf" secondAttribute="bottom" constant="64.5" id="SV4-IE-qo6"/>
                                             <constraint firstItem="Q3d-8S-Xxf" firstAttribute="leading" secondItem="eWu-nt-cDp" secondAttribute="leading" constant="24" id="W1e-X8-g0S"/>
+                                            <constraint firstItem="9ph-bO-zqR" firstAttribute="leading" secondItem="eWu-nt-cDp" secondAttribute="leading" constant="32" id="Xkm-TP-LVA"/>
+                                            <constraint firstItem="9ph-bO-zqR" firstAttribute="top" secondItem="UZv-oX-Vp1" secondAttribute="bottom" constant="32" id="cte-z2-JBi"/>
                                             <constraint firstAttribute="trailing" secondItem="Q3d-8S-Xxf" secondAttribute="trailing" constant="24" id="lGp-yy-BvI"/>
                                             <constraint firstItem="Q3d-8S-Xxf" firstAttribute="top" secondItem="eWu-nt-cDp" secondAttribute="top" constant="64" id="oZ0-8s-bbx"/>
+                                            <constraint firstAttribute="trailing" secondItem="9ph-bO-zqR" secondAttribute="trailing" constant="32" id="qaf-BT-ALs"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -91,6 +100,7 @@
                     <connections>
                         <outlet property="alertDesctiptionLabel" destination="UZv-oX-Vp1" id="FEh-3Y-mYw"/>
                         <outlet property="eventNameLabel" destination="Q3d-8S-Xxf" id="yCI-K9-rjB"/>
+                        <outlet property="senderNameLabel" destination="9ph-bO-zqR" id="FkG-iP-rhx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yu6-xv-sj1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -140,7 +140,7 @@ struct AlertsOfWeather : Decodable {
     var description: String = ""
    // let start: Double
    // let end: Double
-   // let sender_name: String
+    var sender_name: String = ""
     
     
     enum CodingKeys: String, CodingKey {
@@ -148,7 +148,7 @@ struct AlertsOfWeather : Decodable {
         case description = "description"
      //   case start = "start"
      //   case end = "end"
-    //    case sender_name = "sender_name"
+        case sender_name = "sender_name"
     }
 }
 
