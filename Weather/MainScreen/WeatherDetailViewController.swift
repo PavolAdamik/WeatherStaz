@@ -34,6 +34,8 @@ class WeatherDetailViewController: UIViewController {  // icony mozu byt ?
     @IBOutlet weak var errorMessageLabel: UILabel!
     @IBOutlet weak var emptyView: UIView!
     
+    static var wd: WeatherResponse?
+    
     // MARK:  - Variables
     
     var place:Place?
@@ -52,6 +54,8 @@ class WeatherDetailViewController: UIViewController {  // icony mozu byt ?
             reloadState()
         }
     }
+    var cityName = String()
+
     
     // MARK: - Lifecycle
     
@@ -113,7 +117,7 @@ private extension WeatherDetailViewController {
     }
     
     @IBAction func favorite(_ sender: Any) {
-       // UserDefaults.standard.set("Nazdar", forKey: "welcome")
+       // UserDefaults.standard.set(f"Nazdar", forKey: "welcome")
 //        let places = [Place]()
 //        if let data = UserDefaults.standard.data(forKey: "Places") {
 //            do {
@@ -124,6 +128,8 @@ private extension WeatherDetailViewController {
 //              //  print("Unable to decode Nodes (\(error)")
 //            //}
 //        }
+       // print("you .. working" + location!.city)
+        cityName = location!.city
         
         if let place = place { // s tymto place
             do {
@@ -253,9 +259,9 @@ private extension WeatherDetailViewController {
             switch response {
             case.success(let weatherData):
                 self.state = .success(weatherData)
+                WeatherDetailViewController.wd = weatherData
             case.failure(let error):
                 self.state = .error(error.localizedDescription)
-                
             }
         }
     }
@@ -320,3 +326,12 @@ extension WeatherDetailViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+/*
+// MARK: Tabbar
+class FavouriteViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .red
+    }
+}
+ */

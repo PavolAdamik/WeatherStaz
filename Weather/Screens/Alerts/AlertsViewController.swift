@@ -12,50 +12,20 @@ class AlertsViewController: UIViewController {
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var alertDesctiptionLabel: UILabel!
     
-    //private let searchController = UISearchController(searchResultsController: nil)
-   // private let searchManager =  SearchManager()
-   // private var places = [Place]()
     // MARK: - Static
     
-   // struct Alerts: Codable {
-        
-  //      let eventA: String
-  //      let descriptionA: String
-  //  }
-    
-    static var classString: String {
-        String(describing: Self.self)
-    }
-    
-    private var alert: AlertsOfWeather?
-    //private var alerts = [AlertsOfWeather]()
-    
-//    func setupView(with alert: Alerts) {
-//        eventNameLabel.text = alert.title
-//        alertDesctiptionLabel.text = alert.description
-//    }
+    private var alert = AlertsOfWeather()// = AlertsOfWeather()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //skuska()
         // if alert != nil {
         //     setupView(with: alert)
         // }
-        //eventNameLabel.text = alert?.title
-        //alertDesctiptionLabel.text = alert?.description
-        if let alert = alert {
-        //eventNameLabel.text = alert.title
-        //alertDesctiptionLabel.text = alert.description
-            setupView(with: alert)
-        }
         
-       // guard let alert = alert else {
-       //     return
-       // }
-      //  setupView(with: alert)
-     //   eventNameLabel.text = alert.title
-     //   alertDesctiptionLabel.text = alert.description
+        alert.title = WeatherDetailViewController.wd?.alert[0].title ?? "Alerts"
+        alert.description = WeatherDetailViewController.wd?.alert[0].description ?? "No alerts for this city"
+        setupView(with: alert)
 
     }
 
@@ -67,6 +37,7 @@ extension AlertsViewController {
         alertDesctiptionLabel.text = alert.description
     }
 }
+
 
 extension AlertsViewController {
     func skuska() {

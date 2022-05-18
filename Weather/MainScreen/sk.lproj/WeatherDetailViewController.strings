@@ -1,12 +1,12 @@
 
 /* Class = "UILabel"; text = "[time set]"; ObjectID = "0zN-Tm-uQY"; */
-"0zN-Tm-uQY.text" = "[čas nastavený]";
+"0zN-Tm-uQY.text" = "[time set]";
 
 /* Class = "UINavigationItem"; title = "Weather"; ObjectID = "3gN-mE-65L"; */
-"3gN-mE-65L.title" = "Počasie";
+"3gN-mE-65L.title" = "Weather";
 
 /* Class = "UILabel"; text = "[Location]"; ObjectID = "BPN-ZU-Ycu"; */
-"BPN-ZU-Ycu.text" = "[Poloha]";
+"BPN-ZU-Ycu.text" = "[Location]";
 
 /* Class = "UILabel"; text = "[_°C]"; ObjectID = "PHf-eJ-tfC"; */
 "PHf-eJ-tfC.text" = "[_°C]";
@@ -15,37 +15,22 @@
 "R02-gG-Aux.text" = "Label";
 
 /* Class = "UILabel"; text = "[Feels like]"; ObjectID = "Tok-Ta-Mv2"; */
-"Tok-Ta-Mv2.text" = "[Pocitová teplota]";
+"Tok-Ta-Mv2.text" = "[Feels like]";
 
 /* Class = "UILabel"; text = "[Date]"; ObjectID = "Xt5-ig-wPi"; */
-"Xt5-ig-wPi.text" = "[Datum]";
+"Xt5-ig-wPi.text" = "[Date]";
 
 /* Class = "UIButton"; configuration.title = "Refresh"; ObjectID = "aGQ-Gl-wzB"; */
 "aGQ-Gl-wzB.configuration.title" = "Refresh";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "aGQ-Gl-wzB"; */
-"aGQ-Gl-wzB.normalTitle" = "Tlačítko";
+"aGQ-Gl-wzB.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "[Weather descript.]"; ObjectID = "aZY-cB-9bJ"; */
-"aZY-cB-9bJ.text" = "[Popis počasia.]";
+"aZY-cB-9bJ.text" = "[Weather descript.]";
 
 /* Class = "UILabel"; text = "[time rise]"; ObjectID = "eTo-qZ-TQB"; */
-"eTo-qZ-TQB.text" = "[čas východu slnka]";
+"eTo-qZ-TQB.text" = "[time rise]";
 
 /* Class = "UITabBarItem"; title = "Location"; ObjectID = "fAW-Vc-Ynl"; */
-"fAW-Vc-Ynl.title" = "Poloha";
-
-/* Class = "UITabBarItem"; title = "Map"; ObjectID = "ALb-vv-bna"; */
-"ALb-vv-bna.title" = "Mapa";
-
-/* Class = "UITabBarItem"; title = "Favorites"; ObjectID = "JWY-fJ-7sm"; */
-"JWY-fJ-7sm.title" = "Obľúbené";
-
-"Favorites" = "Oblubene";
-
-/* Class = "UITabBarItem"; title = "Alerts"; ObjectID = "JdS-sN-eEa"; */
-"JdS-sN-eEa.title" = "Výstrahy";
-
-
-
-
+"fAW-Vc-Ynl.title" = "Location";

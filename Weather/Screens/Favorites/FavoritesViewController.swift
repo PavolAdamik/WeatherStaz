@@ -11,9 +11,46 @@ class FavoritesViewController: UIViewController {  // naazov,
     
     private let favoriteManager =  FavoriteManager()
     
+    //let fvm = FavoriteManager.decode()
+    
+    
+    
+    override func viewDidLoad() {//taka sprosta otazka .. nadpis ?
+            super.viewDidLoad()
+   //     let wvc = tabBarController as! WeatherDetailViewController
+
+  //      print("CITY name " + wvc.cityName)
+        decode()
+        
+        
+    }
+    
+    func decode() {
+        let places = [Place]()
+        if let data = UserDefaults.standard.data(forKey: "Places") {
+            do {
+                let decoder = JSONDecoder()
+                
+                let places = try? decoder.decode([Place].self, from: data)
+                print("PLACE description  " + (places!.description))
+            } //catch {
+              //  print("Unable to decode Nodes (\(error)")
+            //}
+        }
+    }
+    
    // let dekodovaneData = favor
 
-    
+//    let places = [Place]()
+//            if let data = UserDefaults.standard.data(forKey: "Places") {
+//                do {
+//                    let decoder = JSONDecoder()
+//
+//                    let places = try? decoder.decode([Place].self, from: data)
+//                } //catch {
+//                  //  print("Unable to decode Nodes (\(error)")
+//                //}
+//            }
     
     
     

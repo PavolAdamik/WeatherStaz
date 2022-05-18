@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct FavoriteManager {
+class FavoriteManager : NSObject {
+
+//struct FavoriteManager {
     
     static let shared = FavoriteManager()
-    
-    
-    
+        
     func decode() {
         let places = [Place]()
         if let data = UserDefaults.standard.data(forKey: "Places") {

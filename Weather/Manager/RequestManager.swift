@@ -13,23 +13,9 @@ import Alamofire
 struct RequestManager {
     
     static let shared = RequestManager()
-//    var appLanguage: String {
-//
-//        get {
-//            if let language =
-//                NSUserDe
-//                NSUserDefaults.standardUserDefaults().stringForKey("AppLanguage") {
-//                return language
-//            } else {
-//                NSUserDefaults.standardUserDefaults().setValue(" ", forKey: "AppLanguage")
-//                return ""
-//            }
-//        }
-//    }
     
     func getLanguage() -> String {
         var lang = " "
-       // let languageCode = Locale.current.languageCode
         
         if let languageCode = Locale.current.languageCode {
             switch languageCode {
@@ -48,8 +34,8 @@ struct RequestManager {
     func getWeatherData(for coordinates: CLLocationCoordinate2D, completion: @escaping (Result<WeatherResponse, AFError>) -> Void) {
 
         let request = WeatherRequest(
-            latitude: "\(coordinates.latitude)",
-            longitude: "\(coordinates.longitude)",
+            latitude: "\(coordinates.latitude)",//"41.12",
+            longitude: "\(coordinates.longitude)",//"16.86",
             exclude: "minutely",
             appId: "249111a3312d9fedd886bcba0447f6e7",//7
             lang: getLanguage(), // pridal som si toto ja jazyk
@@ -61,6 +47,7 @@ struct RequestManager {
                 
         AF.request("https://api.openweathermap.org/data/2.5/onecall", method: .get, parameters: request).validate().responseDecodable(of: WeatherResponse.self, decoder: decoderDay) {
             completion($0.result)
+            print($0.result)
             /*
             switch response.result {
             case .success(let weatherData):
