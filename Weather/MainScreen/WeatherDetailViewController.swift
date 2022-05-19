@@ -87,6 +87,7 @@ class WeatherDetailViewController: UIViewController { //zacal by som chybami .. 
                     self.updateLocation()
                 } else  {
                     //nemam zapnutu lokacciu .. present empty state
+                    self.presentAlert()
                 }
             }
             if LocationManager.shared.deniied {
@@ -156,7 +157,6 @@ private extension WeatherDetailViewController {
     
     func setupNotification() {
         content.title = "Weather"
-       // content.body = "Today's weather: \(temperatureLabel.text)"
         content.body = "Don't forget chack the  weather!"
         content.sound = UNNotificationSound.default
         
@@ -328,12 +328,4 @@ extension WeatherDetailViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-/*
-// MARK: Tabbar
-class FavouriteViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .red
-    }
-}
- */
+

@@ -63,10 +63,6 @@
 		09314824281B6673006855DB /* HourlyWeatherCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HourlyWeatherCell.xib; sourceTree = "<group>"; };
 		093A72672834F2EE00B20833 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		093A72692834F30200B20833 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Localizable.strings; sourceTree = "<group>"; };
-		093A726A283553DC00B20833 /* Setechov.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Setechov.gpx; sourceTree = "<group>"; };
-		093A726B283553E400B20833 /* Zilina.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Zilina.gpx; sourceTree = "<group>"; };
-		0943DD34280238C500315E8E /* Setechov.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Setechov.gpx; path = ../../Downloads/Setechov.gpx; sourceTree = "<group>"; };
-		0943DD35280238CD00315E8E /* Zilina.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Zilina.gpx; path = ../../Downloads/Zilina.gpx; sourceTree = "<group>"; };
 		0943DD3628023A7A00315E8E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		0943DD392802C4D700315E8E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		0943DD3B2802C50400315E8E /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
@@ -78,6 +74,8 @@
 		099EBB3228132D020021989A /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		099EBB3428134D540021989A /* WeatherRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRequest.swift; sourceTree = "<group>"; };
 		099EBB3728135F220021989A /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		099EFA6A283640D4007E07A3 /* Valencia.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Valencia.gpx; sourceTree = "<group>"; };
+		099EFA6D283642AC007E07A3 /* Zilina.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Zilina.gpx; path = ../../../Downloads/Zilina.gpx; sourceTree = "<group>"; };
 		09A83E6E2834102400B3E49F /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/WeatherDetailViewController.strings; sourceTree = "<group>"; };
 		09A917CB280B6D6700FA8B5F /* MapViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
 		09A917D1280B6EB900FA8B5F /* FavoritesViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoritesViewController.storyboard; sourceTree = "<group>"; };
@@ -115,8 +113,6 @@
 		090B665927F10C720003AE16 = {
 			isa = PBXGroup;
 			children = (
-				0943DD35280238CD00315E8E /* Zilina.gpx */,
-				0943DD34280238C500315E8E /* Setechov.gpx */,
 				090B666427F10C720003AE16 /* Weather */,
 				090B666327F10C720003AE16 /* Products */,
 			);
@@ -135,8 +131,8 @@
 		090B666427F10C720003AE16 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
-				093A726B283553E400B20833 /* Zilina.gpx */,
-				093A726A283553DC00B20833 /* Setechov.gpx */,
+				099EFA6D283642AC007E07A3 /* Zilina.gpx */,
+				099EFA6A283640D4007E07A3 /* Valencia.gpx */,
 				090B666527F10C720003AE16 /* AppDelegate.swift */,
 				090B666E27F10C730003AE16 /* Assets.xcassets */,
 				090B667327F10C730003AE16 /* Info.plist */,
