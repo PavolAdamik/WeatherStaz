@@ -31,14 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 print(error.localizedDescription)
             }
         }
-        
-        
-        
         return true
     }
 }
-
-//appi - klient - server - a ten to berie z databazy.. potom ich server moze posielat naspat
-// server funguje na REST API
-
-//alamofire

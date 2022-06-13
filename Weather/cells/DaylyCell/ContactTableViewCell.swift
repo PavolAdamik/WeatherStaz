@@ -7,11 +7,12 @@
 
 import UIKit
 
-
+/// Trieda ma na starosti spravu UI elementov celly UICollectionViewCell.storyboard
 class ContactTableViewCell: UITableViewCell {
     
     // MARK: - Static
     
+    ///vrati  popis triedy
     static var classString: String {
         String(describing: Self.self)
     }
@@ -28,6 +29,10 @@ class ContactTableViewCell: UITableViewCell {
 // MARK: - Public
 
 extension ContactTableViewCell {
+    
+    ///metoda ktora nastavi jednotlive labely podla zadaneho parametra
+    ///Parameter:
+    ///     hour: Objekt DailyWeather, ktoremu sa nastavuju labely
     func setupCell(with day: DailyWeather) {
         dayLabel.text = DateFormatter.dayDateFormatter.string(from: day.date)
         weatherLabel.image = day.weather.first?.image?.withRenderingMode(.alwaysOriginal)

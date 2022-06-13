@@ -7,6 +7,7 @@
 
 import Foundation
 
+///predstavuje model pre WeatherRequest  - zemska sirka, vyska, to co sa vyhadzuje z apicok, appId, jazyk, jednotky v ktorych to ma byt zakodovane (stupne celzia, farenheity atd.)
 struct WeatherRequest: Encodable {
     
     let latitude: String

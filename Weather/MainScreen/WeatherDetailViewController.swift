@@ -8,6 +8,7 @@
 import UIKit
 import CoreLocation
 
+///enum , ktory obsahuje tri hodnoty stavov
 enum State {
     case loading
     case error(String)
@@ -15,8 +16,10 @@ enum State {
 }
 
 //@main
+///Trieda v ktorej sa odohrava vacsia cast logiky aplikacie
+///Ma na  starosti spravu UI elementov obrazovky WeatherDetailViewController.storyboard
 class WeatherDetailViewController: UIViewController { //zacal by som chybami .. ze pozri sa na to ked je vypnuta lokacia tak tam neukaze hento a hento.. ked je vypnuta wifi tak tiez tabulecka, jazyk, atd. //zmenene icony, search, sunrise, sunset, preklad, nottifikacie, .. co nejde je ta lokalizacia Ziliny napr, da sa to skrolovat, je tam horizontalna cella, doboku, ohdinova predpoved, praca s apickami
-
+    
     // MARK: - Outlets
     
     @IBOutlet weak var tableView: UITableView!
@@ -51,21 +54,18 @@ class WeatherDetailViewController: UIViewController { //zacal by som chybami .. 
     var refreshControl = UIRefreshControl()
     var days = [DailyWeather]()
     var hours = [HourlyWeather]()
-    var state: State = .loading{
+    var state: State = .loading {
         didSet {
             reloadState()
         }
     }
     var cityName = String()
-
+    
     
     // MARK: - Lifecycle
-    
+    ///funkcia, ktora ma na starosti zobrazenie hlavnej obrazovky
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //setupNotification()
-        
         
         setupTableView()
         setupCollectionView()
@@ -76,7 +76,6 @@ class WeatherDetailViewController: UIViewController { //zacal by som chybami .. 
                 
                 //spravit objekt a inicializovat tie coordinaty
                 //didset sa zavola ked sa inicializuje objekt
-                
                 //pamata si to tu lokaciu ale updatnem na nu..
                 self.loadData()
             }
@@ -86,7 +85,7 @@ class WeatherDetailViewController: UIViewController { //zacal by som chybami .. 
                 if authorized { //!= nil
                     self.updateLocation()
                 } else  {
-                    //nemam zapnutu lokacciu .. present empty state
+                    //nemam zapnutu lokacciu
                     self.presentAlert()
                 }
             }
@@ -104,34 +103,30 @@ class WeatherDetailViewController: UIViewController { //zacal by som chybami .. 
 }
 
 // MARK: - Actions
-
 private extension WeatherDetailViewController {
     
+    ///metodaa ktora zavola metodu na nacitanie dat. Bude  ragovat na tlacidla modify(...).Informaciu o stlaceni posle delegatovi
+    ///  Parameter:
+    ///     sender Any - Objekt ktory  vola tuto funkciu
     @IBAction func reload(_ sender: Any) {
         loadData()
     }
     
+    ///metoda ktora nazaklade parametra zobrazi vyhladavany objekt. Bude  ragovat na tlacidla modify(...).Informaciu o stlaceni posle delegatovi
+    ///Parameter:
+    /// sender Any - Objekt ktory  vola tuto funkciu
     @IBAction func Search(_ sender: Any) {
         let storyboard = UIStoryboard(name: "SearchViewController", bundle: nil)
         if let navigationController = storyboard.instantiateInitialViewController() {
             present (navigationController, animated: true)
         }
-        //            navigationController?.pushViewController(SearchViewController, animated: true
+        // navigationController?.pushViewController(SearchViewController, animated: true
     }
     
+    ///metoda ktora mala zakodovat data. Bude  ragovat na tlacidla modify(...).Informaciu o stlaceni posle delegatovi
+    ///Parameter:
+    /// sender Any - Objekt ktory  vola tuto funkciu
     @IBAction func favorite(_ sender: Any) {
-       // UserDefaults.standard.set(f"Nazdar", forKey: "welcome")
-//        let places = [Place]()
-//        if let data = UserDefaults.standard.data(forKey: "Places") {
-//            do {
-//                let decoder = JSONDecoder()
-//
-//                let places = try? decoder.decode([Place].self, from: data)
-//            } //catch {
-//              //  print("Unable to decode Nodes (\(error)")
-//            //}
-//        }
-       // print("you .. working" + location!.city)
         cityName = location!.city
         
         if let place = place { // s tymto place
@@ -139,22 +134,19 @@ private extension WeatherDetailViewController {
                 let encoder = JSONEncoder() // alokujem si encoder
                 let data = try? encoder.encode(place) //prepisem si ho na data .. tie data budu s tym mojim place
                 UserDefaults.standard.set(data, forKey: "Place") //tu si ulozim kluc Place
-                                        //namiesto tych dat tam viem mat aj pole a tie tam mozem ukladat
+                //namiesto tych dat tam viem mat aj pole a tie tam mozem ukladat
                 //budem mat nejake pole Places .. do nich pridam data a zase cele tie places zakodujem a vytiahnem kedy budem potrebovat.. zobrazim v liste a mam..
                 //take primitivne ukladanie dat.. ide to aj pre objekty a nie len pre primitivne objekty.
-            } //catch {
-              //  print("Unable to encode Node (\(error))")
-            //}
+            }
         }
-        
     }
 }
 
 
 // MARK: - Setup
-
 private extension WeatherDetailViewController {
     
+    ///metoda ktora nastavi notifikacie
     func setupNotification() {
         content.title = "Weather"
         content.body = "Don't forget chack the  weather!"
@@ -167,6 +159,7 @@ private extension WeatherDetailViewController {
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
     
+    ///metoda ktora nastavi hlavnu obrazovku okrem pohyblivych cell
     func setupTableView() {
         tableView.isHidden = true
         tableView.refreshControl = refreshControl
@@ -175,10 +168,14 @@ private extension WeatherDetailViewController {
         tableView.register(UINib(nibName: ContactTableViewCell.classString, bundle: nil), forCellReuseIdentifier: ContactTableViewCell.classString)
     }
     
+    ///metoda, ktora nastavi horizontalne pohyblivu cellu
     func setupCollectionView() {
         collectionView.register(UINib(nibName: HourlyWeatherCell.classString, bundle: nil), forCellWithReuseIdentifier: HourlyWeatherCell.classString)
     }
     
+    ///metoda ktora podla aktualneho pocasia daneho parametrom nastavi jednotlive labely
+    ///Parametre:
+    ///     Sablona ktorou sa bude cella zaoberat
     func setupView(with currentWeather: CurrentWeather) {
         var pom = " "
         if let language = Locale.current.languageCode {
@@ -198,6 +195,7 @@ private extension WeatherDetailViewController {
         dateLabel.text = DateFormatter.mediumDateFormatter.string(from: currentWeather.date)
     }
     
+    ///metoda ktora v pripade nejakej poruchy zobrazi tabulku s danou poruchou
     func presentAlert() {
         let alertController = UIAlertController(title: "Something went wrong", message: "Whatt about connetion ? or localization ?", preferredStyle: .actionSheet) //.action - sposob prezentovania toho allertu a actionSheer
         let okAction = UIAlertAction(title: "OK", style: .cancel)
@@ -212,6 +210,7 @@ private extension WeatherDetailViewController {
         present(alertController, animated: true)
     }
     
+    ///metoda ktora na zaklade atribudu stavu nastavi parametre daneho stavu
     func reloadState() {
         switch state {
         case .loading:
@@ -235,26 +234,27 @@ private extension WeatherDetailViewController {
             emptyView.isHidden = true
             setupView(with: weatherData.current)
             days = weatherData.days
-            hours = weatherData.hourly //ale ci to je dobre to nvm
+            hours = weatherData.hourly
             collectionView.reloadData()
             //collectionView.reloadSections(IndexSet(integer: 0), with: .automatic)
-            tableView.reloadSections(IndexSet(integer: 0), with: .automatic) // ze je to nebezpecne ked je viac veci v tableView .. ale my mame len jednu (teda oni) .. ja uz mam minimalne 2 jak nie aj 4// no proste aniimacie jak v prezentacii XD
+            tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
         }
     }
 }
 
+// MARK: - Request & Location
 
- // MARK: - Request & Location
 
 private extension WeatherDetailViewController {
     
+    ///metoda ktora  po  skontrolovani dat nacita atribut  lokacie a jej koordinaty posiela nasledne do Request manazera
     @objc func loadData() {
         guard let location = location else {
             return
         }
         
         state = .loading
-      
+        
         RequestManager.shared.getWeatherData(for: location.coordinates) { [weak self] response in
             guard let self = self else {return}
             
@@ -268,8 +268,9 @@ private extension WeatherDetailViewController {
         }
     }
     
+    ///metoda ktora aktualizuje polohu
     func updateLocation() { // update preto lebo sak sa to updatuje
-        LocationManager.shared.getLocation { [weak self] location, error in // weak preto lebo ked  pristupujem k sebe ako k referencii a pristupujem k nej priamo tak mi ten controller to dokaze drzat v pamati.. cize ked sa to dealokuje tak to moze ostat v pamati a to nechcem
+        LocationManager.shared.getLocation { [weak self] location, error in
             guard let self = self else { return}
             if let error = error {
                 self.state = .error(error.localizedDescription)
@@ -282,22 +283,41 @@ private extension WeatherDetailViewController {
     }
 }
 
- // MARK: - Table View Data Source
+// MARK: - Table View Data Source
 
 extension WeatherDetailViewController: UITableViewDataSource {
+    
+    ///metoda ktora vrati pocet dni
+    ///Parametre:
+    ///     tableView: Objekt tableView, ktory ziada o informaciu
+    ///     section - index sekcie
+    ///Return: pocet dni v danej sekcii
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return days.count
     }
+    
+    ///metoda ktora si vyziada od zdroja cellu, aby ju nasledne mohla dat na specificke miesto v tableView. V meode sa vytvori cella  z ContactTableViewCell ktoru nasledne naplni hodnotami a potom ju vrati
+    ///Parameters:
+    ///     tableView: Objekt tableView, ktory ziada o informaciu
+    ///     indexPaath: Index na zaaklade ktoreho sa lokalizuje riadok v tableView
+    ///Returns: Objekt ktory dedi z UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPaths: IndexPath) -> UITableViewCell {
         guard let weatherCell = tableView.dequeueReusableCell(withIdentifier: ContactTableViewCell.classString, for: indexPaths) as? ContactTableViewCell else {
             return UITableViewCell()
         }
         weatherCell.setupCell(with: days[indexPaths.row])
-    return weatherCell
+        return weatherCell
     }
 }
 
+
 extension WeatherDetailViewController: UITableViewDelegate {
+    
+    ///metoda ktora vrati vysku vysku celly
+    ///Parameters:
+    ///     tableView: Objekt tableView, ktory ziada o informaciu
+    ///     indexPaath: Index na zaklade ktoreho sa lokalizuje cellu ktorej ma nastavit vysku
+    ///Returns: vyska celly
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
         return 56
     }
@@ -306,14 +326,25 @@ extension WeatherDetailViewController: UITableViewDelegate {
 // MARK: - Collection View Data Source
 
 extension WeatherDetailViewController: UICollectionViewDataSource {
+    
+    ///metoda ktora vrati pocet hodinovych cell
+    ///Parametre:
+    ///     collectionView: Objekt collectionView, ktory ziada o informaciu
+    ///     section - index sekcie
+    ///Return: pocet hodin v danej sekcii
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) ->
     Int {
-        return hours.count // to vrati az 48 asi
-        //return 24
+        return hours.count
     }
     
+    ///metoda ktora si vyziada od zdroja cellu, aby ju nasledne mohla dat na specificke miesto v collectionView. V meode sa vytvori cella  z HourlyWeatherCell ktoru nasledne naplni hodnotami a potom ju vrati
+    ///Parameters:
+    ///     collectionView: Objekt collectionView, ktory ziada o informaciu
+    ///     indexPaaths: Index na zaaklade ktoreho sa lokalizuje stlpec v collectionView
+    ///Returns: Objekt ktory dedi z UICollectionViewCell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPaths: IndexPath) -> UICollectionViewCell {
-        guard let hourCell = collectionView.dequeueReusableCell(withReuseIdentifier: HourlyWeatherCell.classString, for: indexPaths) as? //aj tu paths
+        //reusable
+        guard let hourCell = collectionView.dequeueReusableCell(withReuseIdentifier: HourlyWeatherCell.classString, for: indexPaths) as?
                 HourlyWeatherCell else {
             return UICollectionViewCell()
         }
@@ -323,6 +354,13 @@ extension WeatherDetailViewController: UICollectionViewDataSource {
 }
 
 extension WeatherDetailViewController: UICollectionViewDelegateFlowLayout {
+    
+    ///metoda ktora vrati sirku a vysku vysku celly
+    ///Parameters:
+    ///     collectionView: Objekt collectionView, ktory ziada o informaciu
+    ///     collectionViewLayout: Objekt, ktory sa pridava k tejto kolekcii a zobrazi sa bez animacie
+    ///     indexPaath: Index na zaklade ktoreho sa lokalizuje cellu ktorej sirku a vysku  ma nastavit
+    ///Returns: vyska a sirka  celly
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 150, height: 125)
     }

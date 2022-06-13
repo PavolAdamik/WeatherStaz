@@ -8,31 +8,28 @@
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
 //
-//   let weatherResponse = try? newJSONDecoder().decode(WeatherResponse.self, from: jsonData)
 
 import Foundation
 import UIKit
 
 // MARK: - WeatherResponse
+///predstavuje model pre WeatherResponse, current  predstavuje aktualne pocasi,  days predstavuje pole dni, hourly predstavuje pole hodin, alert predsttavuje pole alertov.
 struct WeatherResponse: Decodable {
     let current: CurrentWeather
     let days: [DailyWeather]
     let hourly: [HourlyWeather]
     var alert: [AlertsOfWeather]?
     
-//    if AlertsOfWeather == nil {
-//        
-//    }
-    
     enum CodingKeys: String, CodingKey {
         case hourly = "hourly"
         case days = "daily"
         case alert = "alerts"
-        case current//, alert
+        case current
     }
 }
 
 // MARK: - Current
+///predstavuje model pre CurrentWeather
 struct CurrentWeather: Decodable {
     let date: Date
     let feelsLike: Double
@@ -53,6 +50,7 @@ struct CurrentWeather: Decodable {
 }
 
 // MARK: - Weather
+///predstavuje model pre Weather, ktory na zaklade icony meni jednotlive obrazky pocasia v aplikacii
 struct Weather: Decodable {
     let description: String
     let icon: String
@@ -89,21 +87,18 @@ struct Weather: Decodable {
 }
 
 // MARK: - Hourly
-
+///predstavuje model pre HourlyWeather
 struct HourlyWeather: Decodable {
     let time: Date
-  //  let precipProbability: Double
     let temperature: Double
     let windSpeed: Double
     let weather: [Weather]
     
     var temperatureWithCelsius: String {"\(Int(temperature))°C"}
     var formattedWindSpeed: String {"\(windSpeed)km/h"}
-    //var formattedProbability: String {"\(precipProbability)%"}
     
     enum CodingKeys: String, CodingKey {
         case time = "dt"
-       // case precipProbability = "pop"
         case temperature = "temp"
         case windSpeed = "wind_speed"
         case weather
@@ -111,7 +106,7 @@ struct HourlyWeather: Decodable {
 }
 
 // MARK: - Daily
-
+///predstavuje model pre DailyWeather
 struct DailyWeather: Decodable {
     let date: Date
     let temperature: Temperature
@@ -119,7 +114,6 @@ struct DailyWeather: Decodable {
     let precipitation: Double
     
     var formattedPrecipitation: String {"\(Int(precipitation * 100))%"}
-    //var temperatureWithCelsius: String {"\(Int(temperature))°C"}
 
     enum CodingKeys: String, CodingKey {
         case date = "dt"
@@ -130,6 +124,7 @@ struct DailyWeather: Decodable {
 }
 
 // MARK: - FeelsLike
+///predstavuje model pre Temperature  - spravne naformatoovanie teploty
 struct Temperature: Decodable {
     let day: Double
     
@@ -138,14 +133,13 @@ struct Temperature: Decodable {
 }
 
 // MARK: - Alerts
-
+///predstavuje model pre AlertsOfWeather
 struct AlertsOfWeather : Decodable {
     var title: String = ""
     var description: String = ""
    // let start: Double
    // let end: Double
     var sender_name: String = ""
-    
     
     enum CodingKeys: String, CodingKey {
         case title = "event"

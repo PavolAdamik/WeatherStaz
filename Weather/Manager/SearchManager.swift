@@ -10,10 +10,12 @@ import MapKit
 
 typealias LocalSearchCompletionHandler = (([Place]) -> Void)
 
+/// Trieda ma na starosti spravu NS  objekty  lokacie
 class SearchManager: NSObject {
     
     // MARK: - Constants
     
+    ///aby doplnalo slova ktore zacnem pisat
     private let searchCompleter = MKLocalSearchCompleter()
     
     // MARK: - Variables
@@ -26,6 +28,9 @@ class SearchManager: NSObject {
         searchCompleter.resultTypes = .address
     }
     
+    ///metoda ktora na zaklade parametrov nasavi objektu searchCompleter dane stavy
+    ///Parameter:
+    ///     query - nazov vyhladavaneho mesta
     func getLocalSearchResults(from query: String, completion: @escaping LocalSearchCompletionHandler) {
         self.searchCompletion = completion
         
@@ -38,6 +43,7 @@ class SearchManager: NSObject {
     }
 }
 
+///predstavuje model pre Mesto, city  predstavuje nazov mesta a country predstavuje krajinu
 struct Place: Codable {
     
     let city: String
@@ -45,6 +51,10 @@ struct Place: Codable {
 }
 
 extension SearchManager: MKLocalSearchCompleterDelegate {
+    
+    ///metoda ktora na zaklade parametra osetruje, aby nebyhladavalo mesta v pripade zadanej medzery
+    ///Parametre:
+    ///     completer: objekt MKLocalSearchCompletera na zaklade ktoreho sa mestam nasavuju hodnoty
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
         //nechcem aaby mi prechadzali tie empty .. cize spravim si nad resultmi filter
         let places =  completer.results
