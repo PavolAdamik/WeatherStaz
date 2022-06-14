@@ -51,7 +51,7 @@ struct RequestManager {
         
         AF.request("https://api.openweathermap.org/data/2.5/onecall", method: .get, parameters: request).validate().responseDecodable(of: WeatherResponse.self, decoder: decoderDay) {
             completion($0.result)
-            //print($0.result)
+            print($0.result)
         }
     }
 }

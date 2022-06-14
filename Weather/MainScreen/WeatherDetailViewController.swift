@@ -49,11 +49,13 @@ class WeatherDetailViewController: UIViewController { //zacal by som chybami .. 
             loadData()
         }
     }
+    var defaultPlace = Place(city: "Zilina", country: "Slovakia")
     var content = UNMutableNotificationContent() // let ?
     var locationManager = LocationManager()
     var refreshControl = UIRefreshControl()
     var days = [DailyWeather]()
     var hours = [HourlyWeather]()
+    var favorites = [Place]()
     var state: State = .loading {
         didSet {
             reloadState()
@@ -123,21 +125,43 @@ private extension WeatherDetailViewController {
         // navigationController?.pushViewController(SearchViewController, animated: true
     }
     
+    //MARK: FAVORITES
+    func naplnPole(key: String)->[Place] {
+        if let data = UserDefaults.standard.data(forKey: key) {
+            do {
+                let decoder = JSONDecoder()
+                let data = try decoder.decode([Place].self, from: data) //prepisem si ho na data .. tie data budu s tym mojim place
+                favorites = data
+                return data
+            } catch {
+                print("Unable to encode Nodes (\(error)")
+            }
+        }
+        return []
+        //tu si ulozim kluc Place
+        //namiesto tych dat tam viem mat aj pole a tie tam mozem ukladat
+        //budem mat nejake pole Places .. do nich pridam data a zase cele tie places zakodujem a vytiahnem kedy budem potrebovat.. zobrazim v liste a mam..
+        //take primitivne ukladanie dat.. ide to aj pre objekty a nie len pre primitivne objekty.
+    }
+    
     ///metoda ktora mala zakodovat data. Bude  ragovat na tlacidla modify(...).Informaciu o stlaceni posle delegatovi
     ///Parameter:
     /// sender Any - Objekt ktory  vola tuto funkciu
+    ///
+    
     @IBAction func favorite(_ sender: Any) {
         cityName = location!.city
-        
-        if let place = place { // s tymto place
-            do {
-                let encoder = JSONEncoder() // alokujem si encoder
-                let data = try? encoder.encode(place) //prepisem si ho na data .. tie data budu s tym mojim place
-                UserDefaults.standard.set(data, forKey: "Place") //tu si ulozim kluc Place
-                //namiesto tych dat tam viem mat aj pole a tie tam mozem ukladat
-                //budem mat nejake pole Places .. do nich pridam data a zase cele tie places zakodujem a vytiahnem kedy budem potrebovat.. zobrazim v liste a mam..
-                //take primitivne ukladanie dat.. ide to aj pre objekty a nie len pre primitivne objekty.
-            }
+        var favoritePlaces = [Place]()
+        favoritePlaces = self.naplnPole(key: "nove")
+        favoritePlaces.append(place ?? defaultPlace)
+        print(favoritePlaces)
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(favoritePlaces)
+            UserDefaults.standard.set(data, forKey: "nove")
+            
+        } catch {
+            print("Unable to decode Nodes (\(error)")
         }
     }
 }
@@ -282,6 +306,24 @@ private extension WeatherDetailViewController {
         }
     }
 }
+
+////MARK: druhy table..Favorite
+//extension FavoritesViewController: UITableViewDataSource {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 3
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+////        guard let facoriteCell = tableView.dequeueReusableCell(withIdentifier: FavoriteCellTableViewCell.classString, for: indexPaths) as? FavoriteCellTableViewCell else {
+////            return UITableViewCell()
+////        }
+////        facoriteCell.setupCell(with: favorites[indexPaths.row])
+////        return facoriteCell
+//
+//    }
+//
+//
+//}
 
 // MARK: - Table View Data Source
 

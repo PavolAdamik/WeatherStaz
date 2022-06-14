@@ -10,6 +10,9 @@ import UIKit
 class FavoritesViewController: UIViewController {  // naazov,
     
     private let favoriteManager =  FavoriteManager()
+    private var places = [Place]()
+
+    //private let favoritePlaces = 
     
     //let fvm = FavoriteManager.decode()
     
@@ -24,8 +27,8 @@ class FavoritesViewController: UIViewController {  // naazov,
         favoriteManager.decode()
         
 
-/*
-    -8
+
+    
     func decode() {
         let places = [Place]()
         if let data = UserDefaults.standard.data(forKey: "Places") {
@@ -39,73 +42,47 @@ class FavoritesViewController: UIViewController {  // naazov,
             //}
         }
     }
-  */
-   // let dekodovaneData = favor
+  
+}
+}
 
-//    let places = [Place]()
-//            if let data = UserDefaults.standard.data(forKey: "Places") {
-//                do {
-//                    let decoder = JSONDecoder()
+//extension FavoritesViewController: UITableViewDataSource {
+//    
+//    ///metoda ktora vrati pocet dni
+//    ///Parametre:
+//    ///     tableView: Objekt tableView, ktory ziada o informaciu
+//    ///     section - index sekcie
+//    ///Return: pocet dni v danej sekcii
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        //return days.count
+//        return 0
+//    }
+//    
+//    ///metoda ktora si vyziada od zdroja cellu, aby ju nasledne mohla dat na specificke miesto v tableView. V meode sa vytvori cella  z ContactTableViewCell ktoru nasledne naplni hodnotami a potom ju vrati
+//    ///Parameters:
+//    ///     tableView: Objekt tableView, ktory ziada o informaciu
+//    ///     indexPaath: Index na zaaklade ktoreho sa lokalizuje riadok v tableView
+//    ///Returns: Objekt ktory dedi z UITableView
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPaths: IndexPath) -> UITableViewCell {
+//        guard let weatherCell = tableView.dequeueReusableCell(withIdentifier: ContactTableViewCell.classString, for: indexPaths) as? ContactTableViewCell else {
+//            return UITableViewCell()
+//        }
+//        //weatherCell.setupCell(with: days[indexPaths.row])
+//        //return weatherCell
+//        return 0
 //
-//                    let places = try? decoder.decode([Place].self, from: data)
-//                } //catch {
-//                  //  print("Unable to decode Nodes (\(error)")
-//                //}
-//            }
-    
-    
-    
-    
-    
-    
-
-/*    override func viewDidLoad() {       //taka sprosta otazka .. nadpis ?
-        super.viewDidLoad()
-    
-        
-    private var places: Set<String>
-    
-    private let safeKey = "Favorites"
-        
-        init() {
-            //load saved data
-            self.places = []
-        }
-        
-        func contains(_ place: Place) -> Bool {
-            places.contains(place.city)
-        }
-        
-        func add(_ place: Place) {
-            objectWillChange.send()
-            places.insert(place.city)
-            save()
-        }
-        
-        func remove(_ place: Place) {
-            objectWillChange.send()
-            places.remove(place.city)
-            save()
-        }
-        
-        func save() {
-            
-        }
-   /*
-        //nieco na tento princip
-        Button(favorites.contains(resort))? "Remove from favorites" : "Add to Favorites") {
-            if self.favorites.contsins(self.resort) {
-                self.favorites.remove(self.resort)
-            }else {
-                self.favorites.add(self.resort)
-            }
-        }
-        .padding()
-    */
-    
-    }
- */
+//    }
+//}
 
 
-}
-}
+//extension WeatherDetailViewController: UITableViewDelegate {
+//
+//    ///metoda ktora vrati vysku vysku celly
+//    ///Parameters:
+//    ///     tableView: Objekt tableView, ktory ziada o informaciu
+//    ///     indexPaath: Index na zaklade ktoreho sa lokalizuje cellu ktorej ma nastavit vysku
+//    ///Returns: vyska celly
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
+//        return 56
+//    }
+//}

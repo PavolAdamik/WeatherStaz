@@ -31,6 +31,8 @@
 		09A917D4280B6FBE00FA8B5F /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A917D3280B6FBE00FA8B5F /* FavoritesViewController.swift */; };
 		09AD26E0282980A100EB9B59 /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AD26DF282980A100EB9B59 /* FavoriteManager.swift */; };
 		09BE6367281EB2F6008400C2 /* AlertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BE6366281EB2F6008400C2 /* AlertsViewController.swift */; };
+		09E47758285887990046A491 /* FavoriteCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E47756285887990046A491 /* FavoriteCellTableViewCell.swift */; };
+		09E47759285887990046A491 /* FavoriteCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09E47757285887990046A491 /* FavoriteCellTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +76,6 @@
 		099EBB3228132D020021989A /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		099EBB3428134D540021989A /* WeatherRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRequest.swift; sourceTree = "<group>"; };
 		099EBB3728135F220021989A /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
-		099EFA6A283640D4007E07A3 /* Valencia.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Valencia.gpx; sourceTree = "<group>"; };
 		099EFA6D283642AC007E07A3 /* Zilina.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Zilina.gpx; path = ../../../Downloads/Zilina.gpx; sourceTree = "<group>"; };
 		09A83E6E2834102400B3E49F /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/WeatherDetailViewController.strings; sourceTree = "<group>"; };
 		09A917CB280B6D6700FA8B5F /* MapViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
@@ -82,6 +83,9 @@
 		09A917D3280B6FBE00FA8B5F /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		09AD26DF282980A100EB9B59 /* FavoriteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteManager.swift; sourceTree = "<group>"; };
 		09BE6366281EB2F6008400C2 /* AlertsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsViewController.swift; sourceTree = "<group>"; };
+		09E477542857B2BC0046A491 /* Zilina.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Zilina.gpx; sourceTree = "<group>"; };
+		09E47756285887990046A491 /* FavoriteCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCellTableViewCell.swift; sourceTree = "<group>"; };
+		09E47757285887990046A491 /* FavoriteCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteCellTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,7 @@
 		090B665927F10C720003AE16 = {
 			isa = PBXGroup;
 			children = (
+				09E477542857B2BC0046A491 /* Zilina.gpx */,
 				090B666427F10C720003AE16 /* Weather */,
 				090B666327F10C720003AE16 /* Products */,
 			);
@@ -132,7 +137,6 @@
 			isa = PBXGroup;
 			children = (
 				099EFA6D283642AC007E07A3 /* Zilina.gpx */,
-				099EFA6A283640D4007E07A3 /* Valencia.gpx */,
 				090B666527F10C720003AE16 /* AppDelegate.swift */,
 				090B666E27F10C730003AE16 /* Assets.xcassets */,
 				090B667327F10C730003AE16 /* Info.plist */,
@@ -223,6 +227,7 @@
 		09BE635A281D98A1008400C2 /* cells */ = {
 			isa = PBXGroup;
 			children = (
+				09E47755285887320046A491 /* FavoriteCell */,
 				09F1EEE3281428680044CA43 /* HourlyForecast */,
 				09BE635B281D992A008400C2 /* DaylyCell */,
 			);
@@ -254,6 +259,15 @@
 				09BE6366281EB2F6008400C2 /* AlertsViewController.swift */,
 			);
 			path = Alerts;
+			sourceTree = "<group>";
+		};
+		09E47755285887320046A491 /* FavoriteCell */ = {
+			isa = PBXGroup;
+			children = (
+				09E47756285887990046A491 /* FavoriteCellTableViewCell.swift */,
+				09E47757285887990046A491 /* FavoriteCellTableViewCell.xib */,
+			);
+			path = FavoriteCell;
 			sourceTree = "<group>";
 		};
 		09F1EEE3281428680044CA43 /* HourlyForecast */ = {
@@ -385,6 +399,7 @@
 				090B666D27F10C720003AE16 /* WeatherDetailViewController.storyboard in Resources */,
 				09A917CC280B6D6700FA8B5F /* MapViewController.storyboard in Resources */,
 				09A917D2280B6EB900FA8B5F /* FavoritesViewController.storyboard in Resources */,
+				09E47759285887990046A491 /* FavoriteCellTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +426,7 @@
 			files = (
 				099EBB3528134D540021989A /* WeatherRequest.swift in Sources */,
 				09AD26E0282980A100EB9B59 /* FavoriteManager.swift in Sources */,
+				09E47758285887990046A491 /* FavoriteCellTableViewCell.swift in Sources */,
 				09314825281B6673006855DB /* HourlyWeatherCell.swift in Sources */,
 				099EBB3828135F220021989A /* Formatter.swift in Sources */,
 				09611DAC27FB851E00B73975 /* ContactTableViewCell.swift in Sources */,

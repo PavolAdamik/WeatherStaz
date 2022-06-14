@@ -18,15 +18,15 @@ class FavoriteManager : NSObject {
     let favorites = FavoritesCompletionHandler.self
         
     func decode() {
-        let places = [Place]()
+        //let places = [Place]()
         if let data = UserDefaults.standard.data(forKey: "Places") {
             do {
                 let decoder = JSONDecoder()
                 
-                let places = try? decoder.decode([Place].self, from: data)
-            } //catch {
-              //  print("Unable to decode Nodes (\(error)")
-            //}
+                let places = try decoder.decode([Place].self, from: data)
+            } catch {
+                print("Unable to decode Nodes (\(error)")
+            }
         }
     }
     
