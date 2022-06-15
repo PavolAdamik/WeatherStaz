@@ -9,38 +9,30 @@ import UIKit
 
 class FavoriteCellTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var countryLabel: UILabel!
-    
-    @IBOutlet weak var cityLabel: UILabel!
+    // MARK: - Static
     
     ///vrati  popis triedy
     static var classString: String {
         String(describing: Self.self)
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    // MARK: - Outlets
     
+    @IBOutlet weak var countryLabel: UILabel!
+    
+    @IBOutlet weak var cityLabel: UILabel!
 }
-
 
 // MARK: - Public
 
-extension ContactTableViewCell {
+extension FavoriteCellTableViewCell {
     
     ///metoda ktora nastavi jednotlive labely podla zadaneho parametra
     ///Parameter:
-    ///     hour: Objekt DailyWeather, ktoremu sa nastavuju labely
-//    func setupCell(with favoritePlace: DailyWeather) {
-//        CityLa
-//        dayLabel.text = DateFormatter.dayDateFormatter.string(from: day.date)
-//        weatherLabel.image = day.weather.first?.image?.withRenderingMode(.alwaysOriginal)
-//        percentageLabel.text = day.formattedPrecipitation
-//        degreeLabel.text = day.temperature.temperatureWithCelsius
-//    }
-    func setupCell(with favoritePlaces: Place) {
-        //favoritePlaces.city.
+    ///     hour: Objekt Places, ktoremu sa nastavuju labely
+    func setUpCell(with favoritePlaces: Place) {
+        cityLabel.text = favoritePlaces.city
+        countryLabel.text = favoritePlaces.country
+        
     }
 }

@@ -152,17 +152,23 @@ private extension WeatherDetailViewController {
     @IBAction func favorite(_ sender: Any) {
         cityName = location!.city
         var favoritePlaces = [Place]()
-        favoritePlaces = self.naplnPole(key: "nove")
+        favoritePlaces = self.naplnPole(key: "poleFavorites")
         favoritePlaces.append(place ?? defaultPlace)
         print(favoritePlaces)
         do {
             let encoder = JSONEncoder()
             let data = try encoder.encode(favoritePlaces)
-            UserDefaults.standard.set(data, forKey: "nove")
+            UserDefaults.standard.set(data, forKey: "poleFavorites")
             
         } catch {
             print("Unable to decode Nodes (\(error)")
         }
+        
+        
+//        let storyboard = UIStoryboard(name: "FavoritesViewController", bundle: nil)
+//        if let navigationController = storyboard.instantiateInitialViewController() {
+//            present (navigationController, animated: true)
+//        }
     }
 }
 
@@ -176,7 +182,7 @@ private extension WeatherDetailViewController {
         content.body = "Don't forget chack the  weather!"
         content.sound = UNNotificationSound.default
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false) // nechcem to opakovat
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 50, repeats: false) // nechcem to opakovat
         
         let request = UNNotificationRequest(identifier: "testIdentifier", content: content, trigger: trigger)
         
